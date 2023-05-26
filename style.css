@@ -1,0 +1,26 @@
+body, html {
+    background-color: black;
+    height: 100%;
+}
+
+.bg-image {
+    /* The image used */
+    background-image: url(assets/main-background.jpg);
+  
+    /* Add the blur effect */
+    filter: blur(4px);
+    -webkit-filter: blur(4px);
+  
+    /* Full height */
+    height: 100%;
+    width: 100%;
+
+    position: fixed;
+    z-index: 0;
+
+  
+    /* Center and scale the image nicely */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
