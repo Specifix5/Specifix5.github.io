@@ -13,6 +13,22 @@
     </head>
     <body>
         <div class="bg-image"></div>
+        <div class="container">
+            <div class="main">
+                <div id="ipText" style="font-family: 'Open Sans Light';margin-top: 5px;font-size:large;">Hello there, 153.35.25.254</div>
+                <hr class="rounded">
+                nospace >:(((
+            </div>
+        </div>
     </body>
+    <script src=
+        "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+    <script>
+        $.getJSON("https://api.ipify.org?format=json", function(data) {
+         
+            document.getElementById("ipText").innerHTML = "Hello there, " + `<span style="font-family: 'Hack'">${data.ip}</span>`;
+        });
+    </script>
     <script src="index.js"></script>
 </html>
