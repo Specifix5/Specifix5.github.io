@@ -1,3 +1,111 @@
+@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css);
+
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/Hack-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/Hack-Italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('assets/Hack-BoldItalic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Hack';
+    src: url('Hack-Bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('assets/OpenSans-Bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('assets/OpenSans-BoldItalic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans ExtraBold';
+    src: url('assets/OpenSans-ExtraBold-webfont.woff') format('woff');
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans ExtraBold';
+    src: url('assets/OpenSans-ExtraBoldItalic-webfont.woff') format('woff');
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('assets/OpenSans-Italic-webfont.woff') format('woff');
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('OpenSans-Light-webfont.woff') format('woff');
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans Light';
+    src: url('OpenSans-LightItalic-webfont.woff') format('woff');
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'Open Sans';
+    src: url('OpenSans-Regular-webfont.woff') format('woff');
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans SemiBold';
+    src: url('OpenSans-Semibold-webfont.woff') format('woff');
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Open Sans SemiBold';
+    src: url('OpenSans-SemiboldItalic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
 body, html {
     background-color: black;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont,  Roboto, Oxygen, Ubuntu, Cantarell, "Segoe UI", "Helvetica Neue", sans-serif;
@@ -9,12 +117,15 @@ body, html {
     background-image: url(assets/main-background.jpg);
   
     /* Add the blur effect */
-    filter: blur(5px);
-    -webkit-filter: blur(5px);
-  
+    filter:brightness(1.1); /*blur(0px);*/
+    -webkit-filter: brightness(1.1); /*blur(0px);*/
+
     /* Full height */
-    height: 100%;
-    width: 100%;
+    height: 270%;
+    width: 280%;
+
+    margin-top: -50%;
+    margin-left: -150%;
 
     position: fixed;
     z-index: 0;
@@ -36,22 +147,150 @@ body, html {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    text-shadow:5px 5px 10px #000000;
 }
 
 .main {
     align-self: center;
-    width: 500px;
-    height: 300px;
-    background-color: rgba(45,45,45, 0.5);
+    width: 550px;
+    height: 480px;
+    background-color: rgba(20, 38, 39, 0.75);
     color: white;
     border-radius: 8px;
     text-align: center;
+    box-shadow: 5px 5px rgba(20, 38, 39, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+a:link {
+    color:rgb(42, 240, 233);
+    text-decoration: none;
+}
+
+a:visited {
+    color:rgb(42, 240, 233);
+    text-decoration: none;
+}
+
+a:hover {
+    color:rgba(42, 240, 233, 0.877);
+    text-decoration: underline;
+}
+
+a.prof:link {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+a.prof:visited {
+    color:rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+a.prof:hover {
+    color:rgba(42, 240, 233, 0.877);
+    text-decoration: underline;
 }
 
 hr.rounded {
     margin-top:12px;
-    border: 1px solid rgba(58, 58, 58, 0.5);
+    border: 1px solid rgba(35, 52, 83, 0.5);
     border-radius: 12px;
     margin-left: 5px;
     margin-right: 5px;
-  }
+}
+
+hr.invis {
+    margin-top:12px;
+    border: 1px solid rgba(0,0,0, 0);
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    'left left left middle middle middle right right right';
+  gap: 10px;
+  background-color: rgba(0, 0, 0, 0);
+  padding: 10px;
+}
+
+button {
+    font-family: 'Hack';
+    font-size: 18px;
+}
+
+
+button.youtube {
+    border-radius: 8px;
+    border-style: hidden;
+    height: 50px;
+    width: 100%;
+    box-shadow: 4px 4px rgba(255, 53, 53, 0.35);
+    color: white;
+    background-color: rgb(255, 53, 53);
+}
+
+button.github {
+    border-radius: 8px;
+    border-style: hidden;
+    height: 50px;
+    width: 100%;
+    box-shadow: 4px 4px rgba(61, 61, 61, 0.35);
+    color: white;
+    background-color: rgb(61, 61, 61);
+}
+
+button.discord {
+    border-radius: 8px;
+    border-style: hidden;
+    height: 50px;
+    width: 100%;
+    box-shadow: 4px 4px rgba(88, 101, 242, 0.35);
+    color: white;
+    background-color: rgb(88, 101, 242);
+}
+
+button {
+    transition: transform 0.2s, filter 0.3s;
+}
+
+button:hover {
+    transform: translate(0px, -8px);
+    filter: brightness(0.85);
+}
+
+button:hover:after {
+    transform: translate(0px, 0px);
+    filter: brightness(1);
+}
+
+.profile-container {
+    align-self: center;
+    display: flex;
+    width: 96%;
+    height: 25%;
+    margin-left: 10px;
+    background-color: rgba(11, 21, 22, 0.9);
+    color: white;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 5px 5px rgba(6, 12, 12, 0.733);
+}
+
+img.avatar {
+    margin-top:6px;
+    margin-left: 65px;
+    border-radius: 50%;
+    border: 4px solid rgb(42, 240, 233);
+    box-shadow: 5px 5px rgba(6, 12, 12, 0.733);
+    align-self:flex-start;
+}
+
+.tinysocialtext {
+    color: rgb(80,80,80);
+    font-family: 'Hack';
+    font-size: 15px;
+}

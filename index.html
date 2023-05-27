@@ -9,18 +9,42 @@
         <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
         <link rel="manifest" href="assets/site.webmanifest">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
         <title>specifix.dev | Home</title>
     </head>
     <body>
         <div class="bg-image"></div>
         <div class="container">
             <div class="main">
-                <div id="ipText" style="font-family: 'Open Sans Light';margin-top: 5px;font-size:large;">Hello there, 153.35.25.254</div>
+                <div id="ipText" style="font-family: 'Open Sans';margin-top: 10px;font-size:large;">Hello there, ###.##.###.##</div>
                 <hr class="rounded">
-                nospace >:(((
-                    
-                save me!!!!! :sob: :sob: :sob:
-                no!
+                <span style="font-family: 'Hack'; font-size:xx-large;color:rgb(42, 240, 233);"><b>— ABOUT ME —</b></span> <br>
+                <span style="font-family: 'Open Sans Light';font-size:large;">
+                    <i>I'm known as Specifix online, I code stuff (and do gaming)<br> 
+                        when I'm bored. I enjoy watching romance, horror, sci-fi & mecha anime :)<br><br>
+                        I've been programming since 2018 (<span id="prYear" style="color:rgb(42, 240, 233);"># years</span> and still learning). <br>
+                        Languages I'm familiar with are: <a href="https://www.javascript.com" target="_blank">JavaScript</a>/<a href="https://www.typescriptlang.org" target="_blank">TypeScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <br><a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>, and a little bit of  <a href="https://cplusplus.com/" target="_blank">C++</a>
+                    </i></span>
+                <hr class="invis" style="margin-top:0px">
+                <div class="grid-container">
+                    <div style="grid-area:left;">
+                        <button class="youtube"><i class="fa-brands fa-youtube fa-lg" style="color: #ffffff;"></i> YouTube</button>
+                    </div>
+                    <div style="grid-area:middle;">
+                        <button class="github"><i class="fa-brands fa-github fa-lg" style="color: #ffffff;"></i> GitHub</button>
+                    </div>
+                    <div style="grid-area:right;">
+                        <button class="discord"><i class="fa-brands fa-discord fa-lg" style="color: #ffffff;"></i> Discord</button>
+                    </div>
+                </div>
+                <div class="profile-container">
+                    <img class="avatar" src="https://cdn.discordapp.com/attachments/906722578738057256/1111993209489477682/voicemodeeee_1.jpg", style="width:100px;height:100px;">
+                    <span style="margin-left:10px;font-size:21px;text-align:left">Specifix # 0001 <span class="tinysocialtext">on Discord</span><br>
+                    <a class="prof" href="https://www.roblox.com/users/2233446594/profile" target="_blank">@Specifix5</a> <span class="tinysocialtext">on Roblox</span><br>
+                    <a class="prof" href="https://twitter.com/ThatIsSpecifix" target="_blank">@ThatIsSpecifix</a> <span class="tinysocialtext">on Twitter</span><br>
+                    <a class="prof" href="https://backrooms.fandom.com/wiki/User:Specifix" target="_blank">Specifix</a> <span class="tinysocialtext">on Wikia</span></span>
+                </div>
             </div>
         </div>
     </body>
@@ -30,8 +54,10 @@
     <script>
         $.getJSON("https://api.ipify.org?format=json", function(data) {
          
-            document.getElementById("ipText").innerHTML = "Hello there, " + `<span style="font-family: 'Hack'">${data.ip}</span>`;
+            document.getElementById("ipText").innerHTML = "Hello there, " + `<span style="font-family: 'Hack'">${data.ip}</span>!`;
         });
+
+        document.getElementById("prYear").innerText = `${(new Date()).getFullYear() - 2018} years`
     </script>
     <script src="index.js"></script>
 </html>
