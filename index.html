@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=1280, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css"> 
         <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -59,10 +59,10 @@
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <script>
-        var siteWidth = 1280;
+        /*var siteWidth = 1280;
         var scale = screen.width / siteWidth;
 
-        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');*/
 
         $.getJSON("https://api.ipify.org?format=json", function(data) {
          
