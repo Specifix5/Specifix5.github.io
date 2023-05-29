@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=1280, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="style.css"> 
         <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
@@ -16,6 +16,7 @@
         <meta content="Specifix's website to do stuff.. yeah." property="og:description" />
         <meta content="https://www.specifix.dev/" property="og:url" />
         <meta content="#2af0e9" data-react-helmet="true" name="theme-color" />
+        
     </head>
     <body>
         <div class="bg-image"></div>
@@ -28,7 +29,7 @@
                     <i>I'm known as Specifix online, I code stuff (and do gaming)<br> 
                         when I'm bored. I enjoy watching romance, horror, sci-fi & mecha anime :)<br><br>
                         I've been programming since 2018 (<span id="prYear" style="color:rgb(42, 240, 233);"># years</span> and still learning). <br>
-                        Languages I'm familiar with are: <a href="https://www.javascript.com" target="_blank">JavaScript</a>/<a href="https://www.typescriptlang.org" target="_blank">TypeScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <br><a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>, and a little bit of  <a href="https://cplusplus.com/" target="_blank">C++</a>
+                        Languages I'm familiar with: <a href="https://www.javascript.com" target="_blank">JavaScript</a>/<a href="https://www.typescriptlang.org" target="_blank">TypeScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <br><a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>, and a little bit of  <a href="https://cplusplus.com/" target="_blank">C++</a>
                     </i></span>
                 <hr class="invis" style="margin-top:0px">
                 <div class="grid-container">
@@ -43,11 +44,13 @@
                     </div>
                 </div>
                 <div class="profile-container">
-                    <img class="avatar" src="https://cdn.discordapp.com/attachments/906722578738057256/1111993209489477682/voicemodeeee_1.jpg", style="width:100px;height:100px;">
-                    <span style="margin-left:10px;font-size:21px;text-align:left">Specifix # 0001 <span class="tinysocialtext">on Discord</span><br>
-                    <a class="prof" href="https://www.roblox.com/users/2233446594/profile" target="_blank">@Specifix5</a> <span class="tinysocialtext">on Roblox</span><br>
-                    <a class="prof" href="https://twitter.com/ThatIsSpecifix" target="_blank">@ThatIsSpecifix</a> <span class="tinysocialtext">on Twitter</span><br>
-                    <a class="prof" href="https://backrooms.fandom.com/wiki/User:Specifix" target="_blank">Specifix</a> <span class="tinysocialtext">on Wikia</span></span>
+                    <div style="background: transparent;align-self:right;top:0;left:0;width:100%;height:100%;display:flex;">
+                        <img id="avatar_img" class="avatar" src="https://cdn.discordapp.com/attachments/906722578738057256/1111993209489477682/voicemodeeee_1.jpg", style="width:100px;height:100px;">
+                        <span style="margin-left:10px;font-size:21px;text-align:left">Specifix # 0001 <span class="tinysocialtext">Discord</span><br>
+                        <a class="prof" href="https://www.roblox.com/users/2233446594/profile" target="_blank">@Specifix5</a> <span class="tinysocialtext">Roblox</span><br>
+                        <a class="prof" href="https://twitter.com/ThatIsSpecifix" target="_blank">@ThatIsSpecifix</a> <span class="tinysocialtext">Twitter</span><br>
+                        <a class="prof" href="https://backrooms.fandom.com/wiki/User:Specifix" target="_blank">Specifix</a> <span class="tinysocialtext">Wikia</span></span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,12 +59,29 @@
         "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <script>
+        var siteWidth = 1280;
+        var scale = screen.width / siteWidth;
+
+        document.querySelector('meta[name="viewport"]').setAttribute('content', 'width='+siteWidth+', initial-scale='+scale+'');
+
         $.getJSON("https://api.ipify.org?format=json", function(data) {
          
             document.getElementById("ipText").innerHTML = "Hello there, " + `<span style="font-family: 'Hack'">${data.ip}</span>!`;
         });
 
         document.getElementById("prYear").innerText = `${(new Date()).getFullYear() - 2018} years`
+
+        if (navigator.userAgent.match(/Android/i)
+         || navigator.userAgent.match(/webOS/i)
+         || navigator.userAgent.match(/iPhone/i)
+         || navigator.userAgent.match(/iPad/i)
+         || navigator.userAgent.match(/iPod/i)
+         || navigator.userAgent.match(/BlackBerry/i)
+         || navigator.userAgent.match(/Windows Phone/i)) {
+            document.getElementById("avatar_img").style.marginLeft = "35px";
+         } else {
+            document.getElementById("avatar_img").style.marginLeft = "75px";
+         }
     </script>
     <script src="index.js"></script>
 </html>

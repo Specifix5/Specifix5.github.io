@@ -269,7 +269,6 @@ button:hover:after {
 
 .profile-container {
     align-self: center;
-    display: flex;
     width: 96%;
     height: 25%;
     margin-left: 10px;
@@ -282,7 +281,7 @@ button:hover:after {
 
 img.avatar {
     margin-top:6px;
-    margin-left: 65px;
+    margin-left: 75px;
     border-radius: 50%;
     border: 4px solid rgb(42, 240, 233);
     box-shadow: 5px 5px rgba(6, 12, 12, 0.733);
@@ -292,5 +291,5 @@ img.avatar {
 .tinysocialtext {
     color: rgb(80,80,80);
     font-family: 'Hack';
-    font-size: 15px;
+    font-size: 14px;
 }
