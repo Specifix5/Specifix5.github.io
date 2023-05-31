@@ -128,6 +128,7 @@ body, html {
     height: 270%;
     width: 280%;
 
+
     margin-top: -50%;
     margin-left: -150%;
 
@@ -139,6 +140,7 @@ body, html {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-color: rgb(12, 17, 17);
 }
 
 .container {
@@ -156,8 +158,11 @@ body, html {
 
 .main {
     align-self: center;
-    width: 550px;
-    height: 451px;
+    min-width: 366px;
+    max-width: 550px;
+    max-height: 451px;
+    width: 100%;
+    height: 100%;
     background-color: rgba(20, 38, 39, 0.75);
     color: white;
     border-radius: 8px;
@@ -300,10 +305,12 @@ img.avatar {
 
 .project-container {
     background-color: rgb(12, 17, 17);
-    height:100%;
+    display: inline-block;
+    height: 100%;
+    max-width: 1920px;
     position:absolute;
     top:100%;
-    width:101%;
+    width:100%;
     left:0;
     color: white;
     text-align: center;
