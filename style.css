@@ -110,7 +110,7 @@ body, html {
     background-color: black;
     font-family: "Open Sans", -apple-system, BlinkMacSystemFont,  Roboto, Oxygen, Ubuntu, Cantarell, "Segoe UI", "Helvetica Neue", sans-serif;
     height: 100%;
-    max-width: 100%;
+    max-width: device-width;
     overflow-x: hidden;
 
     scroll-behavior: smooth;
