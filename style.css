@@ -29,8 +29,8 @@ button {
     background-image: url(assets/main-background.jpg);
   
     /* Add the blur effect */
-    filter:brightness(1.1); /*blur(0px);*/
-    -webkit-filter: brightness(1.1); /*blur(0px);*/
+    filter:brightness(0.85); /*blur(0px);*/
+    -webkit-filter: brightness(0.85); /*blur(0px);*/
 
     /* Full height */
     height: 100%;
@@ -75,7 +75,7 @@ button {
     background-color: rgba(20, 38, 39, 0.75);
     color: #eeeeee;
     text-align: center;
-    box-shadow: 5px 5px rgba(20, 38, 39, 0.4);
+    box-shadow: 5px 5px rgba(9, 18, 19, 0.61);
     backdrop-filter: blur(5px);
     display: inline-block;
 }
@@ -213,10 +213,17 @@ img.avatar {
     height: fit-content;
     max-width: device-width;
     position:absolute;
-    top:100%;
+    top:101%;
     width:100%;
     left:0;
     color: #eeeeee;
     text-align: center;
     text-shadow:5px 5px 10px #000000;
+    box-shadow: 0 0 8px 10px rgb(12, 17, 17);
+}
+
+.IPText {
+    font-family: 'Fira Code';
+    border-right: 0.65em solid #eeeeee;
+    animation: blink-caret 1s step-end infinite;
 }
