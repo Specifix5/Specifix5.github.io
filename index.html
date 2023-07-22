@@ -22,21 +22,33 @@
     
     <body>
         <section id="top">
-            <div class="bg-image"></div>
+            <div style="overflow: hidden;width:100%;height:100%;position:absolute;top:0">
+                <canvas id="canvas" style="background: #010101;"></canvas>
+            </div>
+            <!--<div class="bg-image"></div>-->
+            
+            <script src="effect.js"></script>
             <div class="container">
                 <div class="main">
-                    <div style="font-family: 'Noto Sans';margin-top: 8px;font-size:20px;"><span style="font-size:20px;">Hello<span id="ipText" class="IPText"></span></span></div>
+                    <div style="font-family: 'Rubik';margin-top: 8px;font-size:20px;"><span style="font-size:20px;">Hello<span id="ipText" class="IPText"></span></span></div>
                     <hr class="rounded">
-                    
-                    <span style="font-family: 'Noto Sans';font-size:large;font-weight:400;">
-                        <i>I'm known as Specifix, I code stuff and play in my free time. <br>I also enjoy watching anime, and reading manga.<br><br>
-                            I've been programming since 2018 (<span id="prYear" style="color:rgb(42, 240, 233);"># years</span> and still learning). <br>
-                            Languages I'm familiar with: <a href="https://www.javascript.com" target="_blank">JavaScript</a>/<a href="https://www.typescriptlang.org" target="_blank">TypeScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <br><a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>, and a little bit of  <a href="https://cplusplus.com/" target="_blank">C++</a>
+
+                    <img src="assets/snowycat.png" style="position: absolute;width:150px;height:150px;top:-90px;left:4.5%;">
+                    <img src="assets/sleep.gif" style="position: absolute;width:70px;height:70px;top:-100px;right:66%;">
+                    <img src="assets/terminal.png" style="position: absolute;width:400px;height:400px;top:-225px;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;">
+                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:100%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(180deg) translateY(45.5%);">
+                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(90deg) translate(3%, -74%);">
+                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(-90deg) translate(-3%, -74%);">
+
+                    <span style="font-family: 'Rubik';font-size:large;font-weight:400;">
+                        <i>I'm <span style="color:rgb(42, 240, 233)">Specifix</span>, I love to make random stuff in my free time. <br><b>certified gamer</b> :] (oh and i like watching anime and listening<br>to music (i like YOASOBI, Ado, Fall Out Boy and a lot more)<br><br>
+                            Programmer since 2018 (almost <span id="prYear" style="color:rgb(42, 240, 233);"># years</span> and still learning). <br>
+                            I'm familiar with <a href="https://www.javascript.com" target="_blank">JavaScript</a>/<a href="https://www.typescriptlang.org" target="_blank">TypeScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <br><a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>. Have a nice day!
                     </i></span>
                     <hr class="invis" style="margin-top:0px">
                     <div class="grid-container">
                         <div style="grid-area:left;">
-                            <button class="youtube" onclick="location.href='https://www.youtube.com/@Specifix5';"><i class="fa-brands fa-youtube fa-lg" style="color: #eeeeee;"></i> YouTube</button>
+                            <button class="youtube" onclick="location.href='https://www.youtube.com/@Specifix5?sub_confirmation=1';"><i class="fa-brands fa-youtube fa-lg" style="color: #eeeeee;"></i> YouTube</button>
                         </div>
                         <div style="grid-area:middle;">
                             <button class="github" onclick="location.href='https://github.com/Specifix5';"><i class="fa-brands fa-github fa-lg" style="color: #eeeeee;"></i> GitHub</button>
@@ -61,22 +73,25 @@
             <br>
             <span style="font-family: 'Rubik'; font-size:xx-large;color:rgb(42, 240, 233);border-left:8px solid rgb(42, 240, 233);border-right:8px solid rgb(42, 240, 233);"><b>&nbsp&nbsp&nbspMY PROJECTS&nbsp&nbsp&nbsp</b></span> <br>
             <div id="project-text-wrapper" style="margin: 0 auto;width:35%;text-align:center;white-space: pre-line;">
-                <span style="font-style:italic;font-family: 'Noto Sans';font-size:larger;font-weight:300;">Heres the projects I've publicly released along the way:</span>
-                <ul style="text-align:start;margin-left:-2%;font-size:medium;font-family: 'Noto Sans'">
+                <span style="font-style:italic;font-family: 'Rubik';font-size:larger;font-weight:300;">Heres the projects I've publicly released along the way:</span>
+                <ul style="text-align:start;margin-left:-2%;font-size:large;font-family: 'Rubik'">
                     <li><a href="https://github.com/Specifix5/PixelNET" target="_blank">PixelNET</a>, a project I made in an attempt to have animated wallpapers, made in C# WinForms because it was quick to setup. This project act as a prototype if I ever want to make a better, optimized version in the future.</li>
                     <li><a href="https://github.com/Specifix5/Plane-Crazy-Tracker" target="_blank">Plane-Crazy-Tracker</a>, a lua script made for roblox execution for the game Plane Crazy, It was made to combat the people who built tutorial mouse-controlled flying machines called 'shredders'. I was quite bored at the time and decided to experiment resulting in this script, use for good purposes!</li>
-                    <li><a href="https://github.com/Specifix5/Orionne" target="_blank">Orion/Orionne</a>, a discord bot specifically for my server. I might be able to make a public version out of it but for now, I'll leave it a public repository for you to fork and modify it for your own purpose.</li>
+        
                 </ul>
-                <span style="font-style:italic;font-family: 'Noto Sans';font-size:larger;font-weight: 300;">There's still many more, although most are private repositories or undocumented (too irrelevant to have its own repo).<br>I also have unfinished projects (both private and public):</span>
-                <ul style="text-align:start;margin-left:-2%;font-size:medium;font-family: 'Noto Sans'">
+                <span style="font-style:italic;font-family: 'Rubik';font-size:larger;font-weight: 300;">There's still many more, although most are private repositories or undocumented (too irrelevant to have its own repo).<br>I also have unfinished projects (both private and public):</span>
+                <ul style="text-align:start;margin-left:-2%;font-size:large;font-family: 'Rubik'">
+                    <li><a href="#top">Orion (WIP)</a>, a specifically SCP-themed discord bot for all your faction needs.</li>
                     <li><a href="https://www.roblox.com/games/7840995544/the-backrooms-rbx-SHOWCASE" target="_blank">the backrooms.rbx</a>, a roblox showcase of my take of the backrooms, randomly generated, made in a couple hours. Based on <a href="https://backrooms.fandom.com/wiki/Level_0" target="_blank">Level 0</a> on the Backrooms Fandom, discontinued because I simply lost interest in continuing with my old messy code, a much better revamp (completely new level generation, mechanics, etc) in progress by my friend DRS, me, and the team is in development.</li>
                     <li><a href="https://www.roblox.com/games/7010784578/order-a-food-simulator" target="_blank">order a food simulator</a>, a fan-made sequel to the <a href="https://www.roblox.com/games/6165106805/get-a-snack-at-4-am" target="_blank">get a snack at 4am</a> series by Stixxal. This project is unfinished and possibly discontinued but might be reworked in the future.</li>
                     <li><a href="https://www.roblox.com/games/8038189316/a-casual-testing-range" target="_blank">casual testing range</a>, a roblox game based on the ACS gun framework, just a gun testing range, that's all.</li>
                     <li><span style="color:rgb(42, 240, 233);">Anomalous Descent (WIP)</span>, a work in progress roblox game based on <a href="https://scp-wiki.wikidot.com/scp-087" target="_blank">SCP-087</a>, though my take on this will be moderately altered from the original wiki to add more gameplay and overall more fun!</li>
+                    <li><span style="color:rgb(42, 240, 233);">Unnamed Project</span>, unintentionally put unnamed, because it does not have a name yet! but it is a kind of an RPG game!</li>
                 </ul>
-                <br>
+                <br>         
             </div>
-            <footer style="position:absolute;bottom: 0px;width:100%;background-color:rgb(10, 13, 13);margin-top:2%;left:0;bottom:0;height:7%;max-height:80px;min-height:40px;text-align:center;">
+            
+            <footer style="position:absolute;bottom: 0px;width:100%;background-color:rgb(8, 12, 12);margin-top:2%;left:0;bottom:0;height:7%;max-height:80px;min-height:40px;text-align:center;">
                 <br>
                 <span style="font-size:large;"><a href="#top">Back to Top</a> | &lt;/specifix.dev&gt; | <a href="https://github.com/Specifix5/Specifix5.github.io" target="_blank">Source</a> </span>
             </footer>

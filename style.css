@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:300,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Fira+Code:300,400,700&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=JetBrains+Mono:300,400,700&display=swap');
 
   /* The typewriter cursor effect */
 @keyframes blink-caret {
@@ -9,13 +10,22 @@
     50% { border-color: #eeeeee }
 }
 
+img {    
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+ }
+ 
 body, html {
     background-color: black;
-    font-family: "Noto Sans";
+    font-family: "Rubik";
     height: 100%;
     max-width: 100%;
     overflow-x: hidden;
     color: #eeeeee;
+
 
     scroll-behavior: smooth;
 }
@@ -52,6 +62,21 @@ button {
     overflow: hidden;
 }
 
+.canvas {
+    /* Full height */
+    height: 100%;
+    width: 100%;
+
+    left: 0;
+    top: 0;
+
+    position: absolute;
+    z-index: 0;
+    margin: 0; 
+    
+    overflow: hidden;
+  }
+
 .container {
     display: flex;
     justify-content: center;
@@ -72,7 +97,7 @@ button {
     max-height: 500;
     width: 100%;
     height: fit-content;
-    background-color: rgba(20, 38, 39, 0.75);
+    background-color: rgba(14, 28, 29, 0.75);
     color: #eeeeee;
     text-align: center;
     box-shadow: 5px 5px rgba(9, 18, 19, 0.61);
@@ -136,7 +161,7 @@ hr.invis {
 }
 
 button {
-    font-family: "Fira Code";
+    font-family: "JetBrains Mono";
     font-size: 18px;
 }
 
@@ -186,7 +211,7 @@ button:hover:after {
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 12px;
-    background-color: rgba(11, 21, 22, 0.9);
+    background-color: rgba(16, 31, 32, 0.8);
     color: #eeeeee;
     text-align: center;
     box-shadow: 5px 5px rgba(6, 12, 12, 0.733);
@@ -203,12 +228,12 @@ img.avatar {
 
 .tinysocialtext {
     color: rgb(80,80,80);
-    font-family: 'Fira Code';
+    font-family: 'JetBrains Mono';
     font-size: 14px;
 }
 
 .project-container {
-    background-color: rgb(12, 17, 17);
+    background-color: rgb(5, 10, 10);
     display: inline-block;
     height: fit-content;
     max-width: device-width;
@@ -219,11 +244,12 @@ img.avatar {
     color: #eeeeee;
     text-align: center;
     text-shadow:5px 5px 10px #000000;
-    box-shadow: 0 0 8px 10px rgb(12, 17, 17);
+    box-shadow: 0 0 8px 10px rgb(5, 10, 10);
 }
 
 .IPText {
-    font-family: 'Fira Code';
+    font-family: 'JetBrains Mono';
     border-right: 0.65em solid #eeeeee;
     animation: blink-caret 1s step-end infinite;
+    color: rgb(42, 240, 233);
 }
