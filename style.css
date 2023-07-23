@@ -105,6 +105,32 @@ button {
     display: inline-block;
 }
 
+.messageboxwrapper {
+    font-family: 'Rubik';
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    width: 80%;
+    background-color:rgb(9, 18, 19);
+    box-shadow: 5px 5px rgb(3,6,6);
+}
+
+.messagebox {
+    font-family: 'Rubik';
+    font-size: large;
+    
+    background-color:rgb(9, 18, 19);
+    color: #eeeeee;
+    width: 90%;
+
+    border-style: none;
+}
+
+.messagebox:focus{
+    outline: none;
+}
+
 a:link {
     color:#2af0e9;
     text-decoration: none;
@@ -159,6 +185,17 @@ hr.invis {
   background-color: rgba(0, 0, 0, 0);
   padding: 10px;
 }
+
+.grid-container2 {
+    display: grid;
+    grid-template-areas:
+      'left left left left left left left left right';
+    gap: 2px;
+    background-color: rgba(0, 0, 0, 0);
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  
 
 button {
     font-family: "JetBrains Mono";
