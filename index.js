@@ -52,7 +52,11 @@ function sendMessage(messagebox) {
         },
         error: function (xhr, ajaxOptions, thrownError) {
             messagebox.value = ""
-            messagebox.placeholder = `${xhr.status}: ${xhr.responseText} `
+            let errmsg = `${thrownError}`
+            if (xhr.responseText.length && xhr.responseText.length >= 2) {
+                errmsg = xhr.responseText
+            }
+            messagebox.placeholder = `${xhr.status}: ${errmsg}`
             setTimeout(function() {
                 messagebox.placeholder = "Send me a message anonymously"
             }, 5500)
