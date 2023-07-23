@@ -39,7 +39,7 @@ function sendMessage(messagebox) {
         type: "POST",
         url: "https://api.specifix.dev/api/mailbox",
         data: { content: messagebox.value },
-        dataType: "application/json"
+        dataType: "json"
     })
 
     post.done(async (data) => {
