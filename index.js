@@ -38,8 +38,8 @@ function sendMessage(messagebox) {
     var post = $.ajax({
         type: "POST",
         url: "https://api.specifix.dev/api/mailbox",
-        data: JSON.stringify({ content: messagebox.value }),
-        contentType: "application/json; charset=utf-8"
+        data: JSON.stringify({ "content": messagebox.value }),
+        contentType: "application/json"
     })
 
     post.done(async (data) => {
