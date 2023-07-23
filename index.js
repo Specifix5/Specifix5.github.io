@@ -1,3 +1,5 @@
+let sendMessageDEFAULT = `Send me a message anonymously`
+
 $(document).ready(function() {
     try {
         $.getJSON("https://api.specifix.dev/api/ip", function(data) {
@@ -30,6 +32,8 @@ $(document).ready(function() {
         || navigator.userAgent.match(/Windows Phone/i)) {
             document.getElementById("avatar_img").style.marginLeft = "10px";
             document.getElementById("project-text-wrapper").style.width = "100%";
+            sendMessageDEFAULT = `Send me a message`
+            messagebox.placeholder = sendMessageDEFAULT
     } else {
         document.getElementById("avatar_img").style.marginLeft = "75px";
         document.getElementById("project-text-wrapper").style.width = "35%";
@@ -47,7 +51,7 @@ function sendMessage(messagebox) {
             messagebox.value = ""
             messagebox.placeholder = "Done!"
             setTimeout(function() {
-                messagebox.placeholder = "Send me a message anonymously"
+                messagebox.placeholder = sendMessageDEFAULT
             }, 1500)
         },
         error: function (xhr, ajaxOptions, thrownError) {
@@ -57,8 +61,10 @@ function sendMessage(messagebox) {
                 errmsg = xhr.responseText
             }
             messagebox.placeholder = `${xhr.status}: ${errmsg}`
+            messagebox.classList.add("errorplaceholder")
             setTimeout(function() {
-                messagebox.placeholder = "Send me a message anonymously"
+                messagebox.placeholder = sendMessageDEFAULT
+                messagebox.classList.remove("errorplaceholder")
             }, 5500)
         }
     })

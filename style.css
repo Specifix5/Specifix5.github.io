@@ -290,3 +290,19 @@ img.avatar {
     animation: blink-caret 1s step-end infinite;
     color: rgb(42, 240, 233);
 }
+
+.errorplaceholder::-webkit-input-placeholder {
+    color: #db4b4b;
+}
+
+.errorplaceholder::-moz-placeholder {
+    color:#db4b4b;
+}
+
+.errorplaceholder::-ms-placeholder {
+    color:#db4b4b;
+}
+
+.errorplaceholder::placeholder {
+    color:#db4b4b;
+}
