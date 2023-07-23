@@ -39,13 +39,20 @@ function sendMessage(messagebox) {
         type: "POST",
         url: "https://api.specifix.dev/api/mailbox",
         data: JSON.stringify({ "content": messagebox.value }),
-        contentType: "application/json"
-    })
-
-    post.done(async (data) => {
-        messagebox.placeholder = "Done!"
-        setTimeout(function() {
-            messagebox.placeholder = "Send me a message anonymously"
-        }, 1000);
+        contentType: "application/json",
+        success: function(response) {
+            messagebox.value = ""
+            messagebox.placeholder = "Done!"
+            setTimeout(function() {
+                messagebox.placeholder = "Send me a message anonymously"
+            }, 1500)
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            messagebox.value = ""
+            messagebox.placeholder = `${xhr.status}: ${thrownError}`
+            setTimeout(function() {
+                messagebox.placeholder = "Send me a message anonymously"
+            }, 5500)
+        }
     })
 }
