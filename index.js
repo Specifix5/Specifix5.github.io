@@ -1,15 +1,18 @@
 $(document).ready(function() {
-    $.getJSON("https://api.specifix.dev/api/ip", function(data) {
-        document.getElementById("ipText").innerText = ` ${data.ip}`;
-    });
+    try {
+        $.getJSON("https://api.specifix.dev/api/ip", function(data) {
+            document.getElementById("ipText").innerText = ` ${data.ip}`;
+        });
 
-    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
-    if (hour < 18 && hour > 6) {
-        document.getElementById("goodday").innerText = `Have a good day!`;
-    } else {
-        document.getElementById("goodday").innerText = `Have a good night!`;
+        let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
+        if (hour < 18 && hour > 6) {
+            document.getElementById("goodday").innerText = `Have a good day!`;
+        } else {
+            document.getElementById("goodday").innerText = `Have a good night!`;
+        }
+    } catch (err) {
+        console.log(err);
     }
-
     let sendButton = document.getElementById("sendButton")
     let messagebox = document.getElementById("message")
 
