@@ -6,15 +6,21 @@ $(document).ready(function() {
             document.getElementById("ipText").innerText = ` ${data.ip}`;
         });
 
-        let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
-        if (hour < 18 && hour > 6) {
-            document.getElementById("goodday").innerText = `Have a good day!`;
-        } else {
-            document.getElementById("goodday").innerText = `Have a good night!`;
-        }
     } catch (err) {
         console.log(err);
     }
+
+    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
+    if (hour < 18) {
+        if (hour > 5) {
+            document.getElementById("goodday").innerText = `have a good day!`;
+        } else {
+            document.getElementById("goodday").innerText = `have a good night!`;
+        }
+    } else {
+        document.getElementById("goodday").innerText = `have a good night!`;
+    }
+
     let sendButton = document.getElementById("sendButton")
     let messagebox = document.getElementById("message")
 
