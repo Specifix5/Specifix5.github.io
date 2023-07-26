@@ -1,5 +1,11 @@
-let messageboxwrapper = document.getElementById("messageboxwrapper")
-let messageboxarea = document.getElementById("messageboxdet")
+const pause = (time) => new Promise(resolve => setTimeout(resolve, time))
+
+async function loadButtons(sbtn) {
+    for (var i=0;i < sbtn.length;i++) {
+        sbtn.item(i).style.animationPlayState = "running";
+        await pause(300);
+    }
+}
 
 function onVisibilityChange(el, callback) {
     var old_visible;
@@ -29,7 +35,11 @@ function isElementInViewport (el) {
     );
 }
 
+let messageboxwrapper = document.getElementById("messageboxwrapper")
+let messageboxarea = document.getElementById("messageboxdet")
 
+var sbtn = document.getElementsByClassName("socialbutton")
+loadButtons(sbtn);
 
 var handler = onVisibilityChange(messageboxarea, function(visible) {
     console.log(visible)

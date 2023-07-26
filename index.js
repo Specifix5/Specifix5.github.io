@@ -1,15 +1,14 @@
 let sendMessageDEFAULT = `Send me a message anonymously`
-const pause = (time) => new Promise(resolve => setTimeout(resolve, time))
+
 
 
 $(document).ready(function() {
-    var sbtn = document.getElementsByClassName("socialbutton")
+   
     try {
         $.getJSON("https://api.specifix.dev/api/ip", function(data) {
             document.getElementById("ipText").innerText = ` ${data.ip}`;
         });
 
-        loadButtons(sbtn);
         
     } catch (err) {
         console.log(err);
@@ -79,11 +78,4 @@ function sendMessage(messagebox) {
             }, 5500)
         }
     })
-}
-
-async function loadButtons(sbtn) {
-    for (var i=0;i < sbtn.length;i++) {
-        sbtn.item(i).style.animationPlayState = "running";
-        await pause(300);
-    }
 }
