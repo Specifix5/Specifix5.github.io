@@ -1,11 +1,16 @@
 let sendMessageDEFAULT = `Send me a message anonymously`
+const pause = (time) => new Promise(resolve => setTimeout(resolve, time))
+
 
 $(document).ready(function() {
+    var sbtn = document.getElementsByClassName("socialbutton")
     try {
         $.getJSON("https://api.specifix.dev/api/ip", function(data) {
             document.getElementById("ipText").innerText = ` ${data.ip}`;
         });
 
+        loadButtons(sbtn);
+        
     } catch (err) {
         console.log(err);
     }
@@ -28,6 +33,7 @@ $(document).ready(function() {
         sendMessage(messagebox)
     });
     
+    
     document.getElementById("prYear").innerText = `${(new Date()).getFullYear() - 2018} years`
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
@@ -45,7 +51,6 @@ $(document).ready(function() {
         document.getElementById("project-text-wrapper").style.width = "35%";
     }
 });
-
 
 function sendMessage(messagebox) {
     var post = $.ajax({
@@ -74,4 +79,11 @@ function sendMessage(messagebox) {
             }, 5500)
         }
     })
+}
+
+async function loadButtons(sbtn) {
+    for (var i=0;i < sbtn.length;i++) {
+        sbtn.item(i).style.animationPlayState = "running";
+        await pause(300);
+    }
 }

@@ -10,6 +10,18 @@
     50% { border-color: #eeeeee }
 }
 
+@keyframes buttonload {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
 img {    
     user-select: none;
     -moz-user-select: none;
@@ -290,6 +302,12 @@ img.avatar {
     animation: blink-caret 1s step-end infinite;
     color: rgb(42, 240, 233);
 }
+
+.socialbutton {
+    animation: buttonload 0.5s ease-in-out 1;
+    animation-play-state: paused;
+}
+
 
 .errorplaceholder::-webkit-input-placeholder {
     color: #db4b4b;
