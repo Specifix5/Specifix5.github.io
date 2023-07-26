@@ -1,5 +1,7 @@
 const pause = (time) => new Promise(resolve => setTimeout(resolve, time))
 
+var confettionlyOnce = false
+
 async function loadButtons(sbtn) {
     for (var i=0;i < sbtn.length;i++) {
         sbtn.item(i).style.animationPlayState = "running";
@@ -38,8 +40,12 @@ function isElementInViewport (el) {
 let messageboxwrapper = document.getElementById("messageboxwrapper")
 let messageboxarea = document.getElementById("messageboxdet")
 
+var thxtext = document.getElementById("thxtext")
+
 var sbtn = document.getElementsByClassName("socialbutton")
 loadButtons(sbtn);
+
+
 
 var handler = onVisibilityChange(messageboxarea, function(visible) {
     console.log(visible)
@@ -50,4 +56,23 @@ var handler = onVisibilityChange(messageboxarea, function(visible) {
     }
 });
 
+var handler2 = onVisibilityChange(thxtext, function(visible) {
+    if (visible && confettionlyOnce != true) {
+        confettionlyOnce = true
+        confetti({
+            particleCount: 125,
+            angle: 60,
+            spread: 145,
+            origin: { x: 0 }
+          });
+        confetti({
+            particleCount: 125,
+            angle: 120,
+            spread: 145,
+            origin: { x: 1 }
+        });
+    }
+})
+
 $(window).on('DOMContentLoaded load resize scroll', handler);
+$(window).on('DOMContentLoaded load resize scroll', handler2);

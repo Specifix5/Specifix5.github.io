@@ -173,6 +173,20 @@ a.prof:hover {
     text-decoration: underline;
 }
 
+a.hide:visited {
+    text-decoration: none;
+}
+
+a.hide:link {
+    text-decoration: none;
+}
+
+a.hide:hover {
+    text-decoration: none;
+}
+
+
+
 hr.rounded {
     margin-top:5px;
     border: 1px solid rgba(35, 52, 83, 0.5);

@@ -9,7 +9,9 @@ $(document).ready(function() {
             document.getElementById("ipText").innerText = ` ${data.ip}`;
         });
 
-        
+        $.getJSON("https://api.specifix.dev/api/subcount", function(data) {
+            document.getElementById("subcount").innerText = `${data.subCount}`;
+        })
     } catch (err) {
         console.log(err);
     }
