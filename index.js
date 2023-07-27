@@ -1,41 +1,11 @@
 let sendMessageDEFAULT = `Send me a message anonymously`
 
-
-
-$(document).ready(function() {
-   
-    try {
-        $.getJSON("https://api.specifix.dev/api/ip", function(data) {
-            document.getElementById("ipText").innerText = ` ${data.ip}`;
-        });
-
-        $.getJSON("https://api.specifix.dev/api/subcount", function(data) {
-            document.getElementById("subcount").innerText = `${data.subCount}`;
-        })
-    } catch (err) {
-        console.log(err);
-    }
-
-    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
-    if (hour < 18) {
-        if (hour > 5) {
-            document.getElementById("goodday").innerText = `have a good day!`;
-        } else {
-            document.getElementById("goodday").innerText = `have a good night!`;
-        }
-    } else {
-        document.getElementById("goodday").innerText = `have a good night!`;
-    }
-
+$(document).ready(function() { 
+    document.getElementById("prYear").innerText = `${(new Date()).getFullYear() - 2018} years`
     let sendButton = document.getElementById("sendButton")
     let messagebox = document.getElementById("message")
 
-    sendButton.addEventListener("click", function() {
-        sendMessage(messagebox)
-    });
-    
-    
-    document.getElementById("prYear").innerText = `${(new Date()).getFullYear() - 2018} years`
+    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
     if (navigator.userAgent.match(/Android/i)
         || navigator.userAgent.match(/webOS/i)
         || navigator.userAgent.match(/iPhone/i)
@@ -50,6 +20,32 @@ $(document).ready(function() {
     } else {
         document.getElementById("avatar_img").style.marginLeft = "75px";
         document.getElementById("project-text-wrapper").style.width = "35%";
+    }
+
+    if (hour < 18) {
+        if (hour > 5) {
+            document.getElementById("goodday").innerText = `have a good day!`;
+        } else {
+            document.getElementById("goodday").innerText = `have a good night!`;
+        }
+    } else {
+        document.getElementById("goodday").innerText = `have a good night!`;
+    }
+
+    sendButton.addEventListener("click", function() {
+        sendMessage(messagebox)
+    });
+
+    try {
+        $.getJSON("https://api.specifix.dev/api/ip", function(data) {
+            document.getElementById("ipText").innerText = ` ${data.ip}`;
+        });
+
+        $.getJSON("https://api.specifix.dev/api/subcount", function(data) {
+            document.getElementById("subcount").innerText = `${data.subCount}`;
+        })
+    } catch (err) {
+        console.log(err);
     }
 });
 

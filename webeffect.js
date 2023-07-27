@@ -48,25 +48,38 @@ loadButtons(sbtn);
 
 
 var handler = onVisibilityChange(messageboxarea, function(visible) {
-    console.log(visible)
+    //console.log(visible)
     if (visible) {
         messageboxwrapper.animate([{transform: "translateY(50px)", opacity: "0"}, {transform: "translateY(0px)", opacity: "1"}], {duration: 300, iterations: 1, });
     } else {
-        //messageboxwrapper.animate([{transform: "translateY(0px)", opacity: "1"}, {transform: "translateY(50px)", opacity: "0"}], {duration: 300, iterations:1, });
+        messageboxwrapper.animate([{transform: "translateY(0px)", opacity: "1"}, {transform: "translateY(50px)", opacity: "0"}], {duration: 300, iterations:1, });
     }
 });
+
+var particleCount = 15
+if (navigator.userAgent.match(/Android/i)
+        || navigator.userAgent.match(/webOS/i)
+        || navigator.userAgent.match(/iPhone/i)
+        || navigator.userAgent.match(/iPad/i)
+        || navigator.userAgent.match(/iPod/i)
+        || navigator.userAgent.match(/BlackBerry/i)
+        || navigator.userAgent.match(/Windows Phone/i)) {
+            particleCount = 15
+    } else {
+        particleCount = 60
+    }
 
 var handler2 = onVisibilityChange(thxtext, function(visible) {
     if (visible && confettionlyOnce != true) {
         confettionlyOnce = true
         confetti({
-            particleCount: 125,
+            particleCount: particleCount,
             angle: 60,
             spread: 145,
             origin: { x: 0 }
           });
         confetti({
-            particleCount: 125,
+            particleCount: particleCount,
             angle: 120,
             spread: 145,
             origin: { x: 1 }
