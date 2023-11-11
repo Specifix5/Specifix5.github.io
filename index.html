@@ -5,21 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=5"> 
+        <link rel="stylesheet" type="text/css" href="style.css?v=6"> 
         <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
         <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
         <link rel="manifest" href="site.webmanifest">
+        <link rel="canonical" href="https://specifix.dev/">
         <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
-        <title>specifix</title>
-        <meta content="Specifix" property="og:title" />
-        <meta content="specifix.dev" property="og:site_name" />
-        <meta content="Specifix's website to do stuff.. yeah that's all. By the way, subscribe to my youtube channel!" property="og:description" />
+        <title>Specifix.dev</title>
+        <meta name="og:title" content="Specifix" property="og:title" />
+        <meta name="og:site_name" content="specifix.dev" property="og:site_name" />
+        <meta name="og:description" content="Specifix's website to do stuff.. yeah that's all. By the way, subscribe to my youtube channel!" property="og:description" />
         <meta content="Specifix's website to do stuff.. yeah that's all. By the way, subscribe to my youtube channel!" name="description" />
         <meta content="Specifix, specifix.dev, Github, Twitter, Youtube, Developer, Specifix5, ThatIsSpecifix, Speci" name="keywords"/>
         <meta content="https://specifix.dev/" property="og:url" />
         <meta content="#2af0e9" data-react-helmet="true" name="theme-color" />
-        <meta content="https://cdn.discordapp.com/attachments/906722578738057256/1134072603229814864/image.png" property="og:image" />
+        <meta name="og:image" content="https://cdn.discordapp.com/attachments/906722578738057256/1134072603229814864/image.png" property="og:image" />
         
     </head>
 
@@ -38,31 +39,31 @@
             <script src="effect.js"></script>
             <div class="container">
                 <div class="main">
-                    <div style="font-family: 'Rubik';margin-top: 8px;font-size:20px;"><span style="font-size:20px;">Hello<span id="ipText" class="IPText"></span></span></div>
+                    <div class="maintitleIP">Hello<span id="ipText" class="IPText"></span></div>
                     <hr class="rounded">
 
-                    <img src="assets/snowycat.png" style="position: absolute;width:150px;height:150px;top:-90px;left:4.5%;">
-                    <img src="assets/sleep.gif" style="position: absolute;width:70px;height:70px;top:-100px;right:66%;">
-                    <img src="assets/terminal.png" style="position: absolute;width:400px;height:400px;top:-225px;left:0px;right:0;margin-left:auto;margin-right:auto;z-index:-3;">
-                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:100%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(180deg) translate(0%, 45.5%);">
-                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(90deg) translate(3%, -74%);">
-                    <img src="assets/circ2.png" style="position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(-90deg) translate(-3%, -74%);">
+                    <img src="assets/snowycat.png" class="snowycat">
+                    <img src="assets/sleep.gif" class="sleepsnowycat">
+                    <img src="assets/terminal.png" class="terminalpng">
+                    <img src="assets/circ2.png" class="circ1">
+                    <img src="assets/circ2.png" class="circ2">
+                    <img src="assets/circ2.png" class="circ3">
 
-                    <div style="font-family: 'Rubik';font-size:large;font-weight:400;padding-left:20px;padding-right:20px;">
-                        <i>I'm <span style="color:rgb(42, 240, 233)">Specifix</span>, I love to make random stuff in my free time. Likes watching anime, reading manga and listening to music.<br><br>
-                            Programmer since 2018 (almost <span id="prYear" style="color:rgb(42, 240, 233);"># years</span> and still learning).
-                            Familiar with <a href="https://www.javascript.com" target="_blank">JavaScript</a>, <a href="https://www.lua.org" target="_blank">Lua</a>, <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank">C#</a>, <a href="https://www.python.org" target="_blank">Python</a>, <a href="https://www.w3schools.com/html/" target="_blank">HTML</a>, <a href="https://www.w3schools.com/css/" target="_blank">CSS</a>. Anyway, <span id="goodday"></span>
-                    </i>&nbsp;&nbsp;<b><span style="font-family:'Jetbrains Mono'">≧^◡^≦</span></b></div>
+                    <div class="tinycontainer">
+                        <i>I'm <span class="bluetext">Specifix</span>, I love to make random stuff in my free time. Likes watching anime, reading manga and listening to music.<br><br>
+                            Programmer since 2018 (almost <span id="prYear" class="bluetext"># years</span> and still learning).
+                            Familiar with <span class="bluetext">JavaScript, Lua, C#, HTML, CSS, and Python</span>. Anyway, <span id="goodday"></span>
+                    </i>&nbsp;&nbsp;<b><span class="smileyface">≧^◡^≦</span></b></div>
                     <hr class="invis" style="margin-top:0px">
                     <div class="grid-container">
                         <div style="grid-area:left;">
-                            <button class="youtube socialbutton" onclick="location.href='https://www.youtube.com/Specifix5?sub_confirmation=1';"><i class="fa-brands fa-youtube fa-lg" style="color: #eeeeee;"></i> YouTube</button>
+                            <button class="youtube socialbutton" onclick="location.href='https://www.youtube.com/Specifix5?sub_confirmation=1';"><i class="fa-brands fa-youtube fa-lg"></i> YouTube</button>
                         </div>
                         <div style="grid-area:middle;">
-                            <button class="github socialbutton" onclick="location.href='https://github.com/Specifix5';"><i class="fa-brands fa-github fa-lg" style="color: #eeeeee;"></i> GitHub</button>
+                            <button class="github socialbutton" onclick="location.href='https://github.com/Specifix5';"><i class="fa-brands fa-github fa-lg"></i> GitHub</button>
                         </div>
                         <div style="grid-area:right;">
-                            <button class="discord socialbutton" onclick="location.href='https://discord.gg/whNdXjKezx';"><i class="fa-brands fa-discord fa-lg" style="color: #eeeeee;"></i> Discord</button>
+                            <button class="discord socialbutton" onclick="location.href='https://discord.gg/whNdXjKezx';"><i class="fa-brands fa-discord fa-lg"></i> Discord</button>
                         </div>
                     </div>
                     <div class="profile-container">

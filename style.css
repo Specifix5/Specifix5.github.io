@@ -74,6 +74,46 @@ button {
     overflow: hidden;
 }
 
+.maintitleIP {
+    font-family: 'Rubik';margin-top: 8px;font-size:20px;
+}
+
+.snowycat {
+    position: absolute;width:150px;height:150px;top:-90px;left:4.5%;
+}
+
+.sleepsnowycat {
+    position: absolute;width:70px;height:70px;top:-100px;right:66%;
+}
+
+.terminalpng {
+    position: absolute;width:400px;height:400px;top:-225px;left:0px;right:0;margin-left:auto;margin-right:auto;z-index:-3;
+}
+
+.circ1 {
+    position: absolute;width:400px;height:400px;top:100%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(180deg) translate(0%, 45.5%);
+}
+
+.circ2 {
+    position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(90deg) translate(3%, -74%);
+}
+
+.circ3 {
+    position: absolute;width:400px;height:400px;top:0%;left:0;right:0;margin-left:auto;margin-right:auto;z-index:-3;transform: rotate(-90deg) translate(-3%, -74%);
+}
+
+.tinycontainer {
+    font-family: 'Rubik';font-size:large;font-weight:400;padding-left:20px;padding-right:20px;
+}
+
+.bluetext {
+    color:rgb(42, 240, 233)
+}
+
+.smileyface {
+    font-family:'Jetbrains Mono'
+}
+
 .canvas {
     /* Full height */
     height: 100%;
@@ -320,6 +360,7 @@ img.avatar {
 .socialbutton {
     animation: buttonload 0.5s ease-in-out 1;
     animation-play-state: paused;
+    color: #eeeeee;
 }
 
 
