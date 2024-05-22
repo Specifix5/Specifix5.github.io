@@ -1,122 +1,148 @@
 <!DOCTYPE html>
-
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="stylesheet" type="text/css" href="style.css?v=7"> 
-        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-        <link rel="manifest" href="site.webmanifest">
-        <link rel="canonical" href="https://specifix.dev/">
+        <link rel="stylesheet" type="text/css" href="style.css"> 
+
         <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="index.js"></script>
+
+        <link rel="canonical" href="https://specifix.dev/">
+
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+
         <title>Specifix.dev</title>
         <meta name="og:title" content="Specifix" property="og:title" />
         <meta name="og:site_name" content="specifix.dev" property="og:site_name" />
         <meta name="og:description" content="I'm Specifix, how are you?" property="og:description" />
         <meta content="I'm Specifix, how are you?" name="description" />
-        <meta content="Specifix, specifix.dev, Github, Twitter, YouTube, Developer, Specifix5, ThatIsSpecifix, Speci" name="keywords"/>
         <meta content="https://specifix.dev/" property="og:url" />
-        <meta content="#2af0e9" data-react-helmet="true" name="theme-color" />
-        <meta name="og:image" content="https://cdn.discordapp.com/attachments/906722578738057256/1134072603229814864/image.png" property="og:image" />
-        
+        <meta content="#87d5ff" data-react-helmet="true" name="theme-color" />
+        <script type="text/javascript" src="stars.js"></script>
     </head>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="index.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
     <body>
-        <section id="top">
-            <div style="overflow: hidden;width:100%;height:100%;position:absolute;top:0">
-                <canvas id="canvas" style="background: #010101;"></canvas>
+        <header class="header" id="header">
+            <div class="header-right">
+                <a class="fade active" href="#about"><i class="fa-solid fa-question" style="color: #87d5ff;"></i>&nbsp;&nbsp;About</a>
+                <a class="fade" href="#projects"><i class="fa-solid fa-diagram-project" style="color: #87d5ff;"></i>&nbsp;&nbsp;My Works</a>
+                <a class="fade" href="#contact"><i class="fa-regular fa-address-book" style="color: #87d5ff;"></i>&nbsp;&nbsp;Contact Me</a>
+                <a class="fade removeeemob" href="mailto:alex@specifix.dev" target="_blank"><i class="fa-regular fa-envelope fa-lg" style="color: #87d5ff;"></i>&nbsp;&nbsp;Email Me</a>
             </div>
-            <!--<div class="bg-image"></div>-->
-            
-            <script src="effect.js"></script>
-            <div class="container">
-                <div class="main">
-                    <div class="maintitleIP">Hello<span id="ipText" class="IPText"></span></div>
-                    <hr class="rounded">
+            <a href="#about">
+                <div class="logocontainer">
+                    <div class="logotext">
+                        <div class="centerlogotext fade" id="logotext"><span class="blue">specifix</span>.dev</div>
+                        <div class="iptext monofont centerlogotextremove fade" id="logoiptext"><span class="emerald">hello,</span><span class="ip" id="ip"> 32.32.32.32</span></div>
+                    </div>
+                    <img class="headerlogo" style="transform: rotate(150deg);" src="assets/specifix.png">
+                    <!--<img src="https://count.getloli.com/get/@:name?theme=moebooru" alt=":name" />-->
+                </div>
+            </a>
+        </header>
+        <canvas class="bg" id="canvas" width="100%" height="100%"></canvas>
 
-                    <img src="assets/snowycat.png" class="snowycat">
-                    <img src="assets/sleep.gif" class="sleepsnowycat">
-                    <img src="assets/terminal.png" class="terminalpng">
-                    <img src="assets/circ2.png" class="circ1">
-                    <img src="assets/circ2.png" class="circ2">
-                    <img src="assets/circ2.png" class="circ3">
-
-                    <div class="tinycontainer">
-                        <i>I'm <span class="bluetext">Specifix</span>, I love to make random stuff in my free time. Likes watching anime, reading manga and listening to music.<br><br>
-                            Programmer since 2018 (almost <span id="prYear" class="bluetext"># years</span> and still learning).
-                            Familiar with <span class="bluetext">JavaScript, Lua, C#, HTML, CSS, and Python</span>. Anyway, <span id="goodday"></span>
-                    </i>&nbsp;&nbsp;<b><span class="smileyface">≧^◡^≦</span></b></div>
-                    <hr class="invis" style="margin-top:0px">
-                    <div class="grid-container">
-                        <div style="grid-area:left;">
-                            <button class="youtube socialbutton" onclick="location.href='https://www.youtube.com/Specifix5?sub_confirmation=1';"><i class="fa-brands fa-youtube fa-lg"></i> YouTube</button>
-                        </div>
-                        <div style="grid-area:middle;">
-                            <button class="github socialbutton" onclick="location.href='https://github.com/Specifix5';"><i class="fa-brands fa-github fa-lg"></i> GitHub</button>
-                        </div>
-                        <div style="grid-area:right;">
-                            <button class="discord socialbutton" onclick="location.href='https://discord.gg/whNdXjKezx';"><i class="fa-brands fa-discord fa-lg"></i> Discord</button>
+        <div class="pagecontainer" id="mainpagecontainer">
+            <section class= "page fadein" id="about">
+                <div class="aboutcontainer">
+                    <div class="aboutinfo">
+                        <b>Good <span id="goodday">Afternoon</span>,</b>
+                        <h1>I'm <span class="blue">Specifix</span>!</h1>
+                        I love making random stuff in my free time.
+                        I quite like a lot of stuff like:
+                        <ul>
+                            <li>Animes, Music & Manga</li>
+                            <li>Mostly casual, sandbox games</li>
+                            <li>Doing the most random stuff</li>
+                            <li>Programming</li>
+                        </ul>
+                        <img class="arrow" style="transform: rotate(90deg) scaleY(-1);margin-top:-1em" src="assets/arrow.png">
+                        <div class="programmingtext">
+                            Programmer since <span class="blue">2018</span> (~<span id="year" class="emerald">6 years</span> and counting).
+                            I excel in <span class="blue">JS, TS, C#, Lua</span> (also learning many more!)
                         </div>
                     </div>
-                    <div class="profile-container">
-                        <div style="background: transparent;align-self:right;top:0;left:0;width:100%;height:100%;display:flex;">
-                            <img id="avatar_img" class="avatar" src="https://cdn.discordapp.com/attachments/1116933648168538162/1117785308268867584/pfpaaaaa.png", style="width:100px;height:100px;">
-                            <span style="margin-left:10px;font-size:22px;text-align:left;font-family: 'Rubik'">specifix <span class="tinysocialtext">Discord</span><br>
-                            <a class="prof" href="https://www.roblox.com/users/2233446594/profile" target="_blank">@Specifix5</a> <span class="tinysocialtext">Roblox</span><br>
-                            <a class="prof" href="https://twitter.com/ThatIsSpecifix" target="_blank">@ThatIsSpecifix</a> <span class="tinysocialtext">Twitter</span><br>
-                            <a class="prof" href="mailto:alex@specifix.dev" target="_blank">alex@specifix.dev</a> <span class="tinysocialtext">Email</span></span>
+                    
+                    <div class="asciiart removeeeemob">
+                        <span class="blue removemob">♡</span> 
+                        <div id="omato" class="removemob"> ニャ~ ♡</div><br>
+                              <div>&nbsp;^</div><br>
+                              &nbsp;(&nbsp;`&nbsp;&nbsp;- &nbsp;<span>7</span> <div id="omato2" class="removemob"><a class="nodeco" href="mailto:alex@specifix.dev"><img class="emojisize" src="assets/mail.png"><br>email me</a></div> <br>
+                              &nbsp;|、⁻〵<br>
+                              &nbsp;じしˍ,)ノ
+                    </div>
+
+                </div>
+            </section>
+            <section class="page opaque" id="projects">
+                <div class="ytcountcontainer">
+                    <h1>> THANKS FOR <span id="ytcount">500</span> SUBS_</h1>
+                </div>
+                <div class="projectcontainer">
+                    <h1>MY <span class="blue">FAV PROJECTS</span></h1>
+                    <span class="centerdesctext">— A collection of my projects, more on <a class="blue" href="https://github.com/Specifix5">GitHub</a> —</span>
+                    <div class="projlist">
+                        <div class="item item-ayamari">
+                            <h1>謝り Ayamari</h1>
+                            <div class="textcontainer">A Work in Progress roblox horror game I'm making, the story is about how disturbing a dream can be. I won't be spoiling too much of this WIP one :) </div>
+                        </div>
+                        <div class="item item-backrooms">
+                            <h1>the backrooms.rbx</h1>
+                            <div class="textcontainer">A roblox game showcasing the backrooms, explore the vast and seemingly infinite empty office space.</div>
+                            <a href="https://www.roblox.com/games/7840995544/the-backrooms-rbx-SHOWCASE" target="_blank"><button ><i class="fa-solid fa-arrow-up-right-from-square"> </i> Check it out</button></a>
+                        </div>
+                        <div class="item item-pixelnet" id="pixelnet">
+                            <h1>PixelNET</h1>
+                            <div class="textcontainer">A .NET demo on which I've created an app that is able to set video as your wallpaper (essentially animated wallpapers)</div>
+                            <a href="https://github.com/Specifix5/PixelNET" target="_blank"><button ><i class="fa-solid fa-arrow-up-right-from-square"> </i> Check it out</button></a>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section id="Projects" class="project-container">
-            <script src="https://apis.google.com/js/platform.js"></script>
-
-            <br>
-            <span style="font-family: 'Rubik'; font-size:xxx-large;color:rgb(42, 240, 233);"><b><a class="hide" href="https://www.youtube.com/@Specifix5?sub_confirmation=1" target="_blank"><span id="thxtext" style='background: url("https://cdn.discordapp.com/attachments/906722578738057256/1133777343723339807/confettinewyearcelebration.png");filter:brightness(2);-webkit-filter: brightness(2);background-size: cover;-webkit-background-clip: text;background-clip: text;background-attachment:fixed;-webkit-text-fill-color:transparent;'>THANKS FOR <span id="subcount">500</span> SUBS!</span></a></b></span>
-            <br><span style="font-size:large;"><a class="hide" href="https://www.youtube.com/@Specifix5?sub_confirmation=1" target="_blank">On YouTube</a>&nbsp&nbsp&nbsp&nbsp</span><b>|</b><span style="font-size:large">&nbsp&nbsp&nbsp&nbspa certified gamer B)</span><br><br><br>
-            <span style="font-family: 'Rubik'; font-size:xx-large;color:rgb(42, 240, 233);border-left:8px solid rgb(42, 240, 233);border-right:8px solid rgb(42, 240, 233);"><b>&nbsp&nbsp&nbsp- &nbspMY PROJECTS&nbsp -&nbsp&nbsp&nbsp</b></span> <br>
-            <div id="project-text-wrapper" style="margin: 0 auto;width:35%;text-align:center;white-space: pre-line;">
-                <span style="font-style:italic;font-family: 'Rubik';font-size:larger;font-weight:300;">Heres the projects I've publicly released along the way:</span>
-                <ul style="text-align:start;margin-left:-2%;font-size:large;font-family: 'Rubik'">
-                    <li><a href="https://github.com/Specifix5/PixelNET" target="_blank">PixelNET</a>, a project I made in an attempt to have animated wallpapers, made in C# WinForms because it was quick to setup. This project act as a prototype if I ever want to make a better, optimized version in the future.</li>
-                    <li><a href="https://github.com/Specifix5/Plane-Crazy-Tracker" target="_blank">Plane-Crazy-Tracker</a>, a lua script made for roblox execution for the game Plane Crazy, It was made to combat the people who built tutorial mouse-controlled flying machines called 'shredders'. I was quite bored at the time and decided to experiment resulting in this script, use for good purposes!</li>
-        
-                </ul>
-                <span style="font-style:italic;font-family: 'Rubik';font-size:larger;font-weight: 300;">There's still many more, although most are private repositories or undocumented (too irrelevant to have its own repo).<br>I also have unfinished projects (both private and public):</span>
-                <ul style="text-align:start;margin-left:-2%;font-size:large;font-family: 'Rubik'">
-                    <li><a href="#top">Orion (WIP)</a>, a specifically SCP-themed discord bot for all your faction needs.</li>
-                    <li><a href="https://www.roblox.com/games/7840995544/the-backrooms-rbx-SHOWCASE" target="_blank">the backrooms.rbx</a>, a roblox showcase of my take of the backrooms, randomly generated, made in a couple hours. Based on <a href="https://backrooms.fandom.com/wiki/Level_0" target="_blank">Level 0</a> on the Backrooms Fandom, discontinued because I simply lost interest in continuing with my old messy code, a much better revamp (completely new level generation, mechanics, etc) in progress by my friend DRS, me, and the team is in development.</li>
-                    <li><a href="https://www.roblox.com/games/7010784578/order-a-food-simulator" target="_blank">order a food simulator</a>, a fan-made sequel to the <a href="https://www.roblox.com/games/6165106805/get-a-snack-at-4-am" target="_blank">get a snack at 4am</a> series by Stixxal. This project is unfinished and possibly discontinued but might be reworked in the future.</li>
-                    <li><a href="https://www.roblox.com/games/8038189316/a-casual-testing-range" target="_blank">casual testing range</a>, a roblox game based on the ACS gun framework, just a gun testing range, that's all.</li>
-                    <li><span style="color:rgb(42, 240, 233);">Anomalous Descent (WIP)</span>, a work in progress roblox game based on <a href="https://scp-wiki.wikidot.com/scp-087" target="_blank">SCP-087</a>, though my take on this will be moderately altered from the original wiki to add more gameplay and overall more fun!</li>
-                    <li><span style="color:rgb(42, 240, 233);">Unnamed Project (WIP)</span>, unintentionally put unnamed, because it does not have a name yet! but it is a kind of an RPG game!</li>
-                </ul>
-                <div id="messageboxdet" style="position:relative;width:100%;background-color:transparent;bottom:0;height:1px;"></div>
-                <div id="messageboxwrapper" class="messageboxwrapper">
-                    <div class="grid-container2">
-                        <input style="grid-area:left" id="message" class="messagebox" type="text" placeholder="Send me a message anonymously">
-                        <button id="sendButton" onclick="" style="grid-area:right;background: transparent;border-style:hidden;"><i class="fa-solid fa-paper-plane fa-lg" style="color: #eeeeee;"></i></button>
+            </section>
+            <section class="page opaque2" id="contact">
+                <div class="socialcontainer">
+                    <div class="social-text-wrapper">
+                        <h2>WHERE YOU CAN</h2>
+                        <h1 class="big blue">FIND ME</h1>
+                        <div class="right removemob">These are my <span class="blue">only socials</span>, so if you see someone pretending to be me somewhere else, it's probably an impersonator and not to be taken seriously. Avoid them and stay safe!</div>
+                        <span class="centerdesctext removedesktop">— My only social media —</span>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://www.youtube.com/@Specifix5" target="_blank">
+                            <button class="social-youtube"><i class="fa-brands fa-youtube fa-lg"></i> <div><span class="val">@Specifix5</span> <br>YouTube</div></button>
+                        </a>
+                        <a href="https://twitter.com/ThatIsSpecifix" target="_blank">
+                            <button class="social-twitter inactive-account" onmouseover="xMouseOver()" onmouseout="xMouseOut()"><i class="fa-brands fa-twitter fa-lg"></i> <div><span class="val">@ThatIsSpecifix</span> <br>Twitter/X</div></button>
+                        </a>
+                        <a href="https://github.com/Specifix5/" target="_blank">
+                            <button class="social-github"><i class="fa-brands fa-github fa-lg"></i> <div><span class="val">@Specifix5</span> <br>GitHub</div></button>
+                        </a>
+                        <a href="https://discord.specifix.dev/" target="_blank">
+                            <button class="social-discord"><i class="fa-brands fa-discord fa-lg"></i> <div><span class="val">@specifix</span> <br>Discord</div></button>
+                        </a>
+                    </div>
+                    
+                    <div class="messagebox-wrapper">
+                        <img src="assets/snowycat.png" class="cat">
+                        <img src="assets/sleep.gif" class="sleep">
+                        <input id="messagebox" class="messagebox" placeholder="Message me anonymously!">
+                        <button id="sendmessage" class="sendmessage"><i class="fa-solid fa-paper-plane fa-lg"></i></button>
                     </div>
                 </div>
-            </div>
-            
-            <br><br><br><br><br>
-            <footer style="position:absolute;bottom: 0px;width:100%;background-color:rgb(8, 12, 12);margin-top:2%;left:0;bottom:0;height:7%;max-height:80px;min-height:40px;text-align:center;">
-                <br>
-                <span style="font-size:large;"><a href="#top">Back to Top</a> | &lt;/specifix.dev&gt; | <a href="https://github.com/Specifix5/Specifix5.github.io" target="_blank">Source</a> </span>
+            </section>
+            <footer class="footer">
+                <span class="translucent">how many people have visited so far..</span>
+                <br><br>
+                <img src="https://count.specifix.dev/get/@visitors?theme=moebooru" />
+                <br><br><span class="big"><a class="nodecot blue" href="#about">Back to Top</a> | &lt;/specifix.dev&gt; | <a class="nodecot blue"  href="https://github.com/Specifix5/Specifix5.github.io" target="_blank">Source</a> </span>
             </footer>
-        </section>
+        </div>
     </body>
-
-    <script src="webeffect.js" type="text/javascript"></script>
 </html>
