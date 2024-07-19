@@ -1,120 +1,133 @@
-let sendMessageDEFAULT = `Message me anonymously!`
+function showPopup(popup) {
+    var popupElement = document.querySelector("#" + popup);
+    if (popupElement != null) {
+        var backdrop = document.querySelector("#popup-bg");
+        backdrop.classList.add("visible");
+        popupElement.classList.add("visible");
+        
+        var vhides = document.querySelectorAll(".vhide")
+        vhides.forEach(element => { element.style.display = "none"; });
 
-function debounce(method, delay) {
-    clearTimeout(method._tId);
-    method._tId= setTimeout(function(){
-        method();
-    }, delay);
-}
+        document.querySelector("body").style.overflow = "hidden";
 
-function xMouseOver() {
-    var element = document.querySelector('.social-twitter > i')
-    element.classList.remove('fa-twitter')
-    element.classList.add('fa-x-twitter')
-}
-
-function xMouseOut() {
-    var element = document.querySelector('.social-twitter > i')
-    element.classList.remove('fa-x-twitter')
-    element.classList.add('fa-twitter')
-}
-
-function sendMessage(messagebox) {
-    var post = $.ajax({
-        type: "POST",
-        url: "https://api.specifix.dev/api/mailbox",
-        data: JSON.stringify({ "content": messagebox.value }),
-        contentType: "application/json",
-        success: function(response) {
-            messagebox.value = ""
-            messagebox.placeholder = "Sent!"
-            setTimeout(function() {
-                messagebox.placeholder = sendMessageDEFAULT
-            }, 1500)
-        },
-        error: function (xhr, ajaxOptions, thrownError) {
-            messagebox.value = ""
-            let errmsg = `${thrownError}`
-            if (xhr.responseText.length && xhr.responseText.length >= 2) {
-                errmsg = xhr.responseText
-            }
-            messagebox.placeholder = `${xhr.status}: ${errmsg}`
-            messagebox.classList.add("errorplaceholder")
-            setTimeout(function() {
-                messagebox.placeholder = sendMessageDEFAULT
-                messagebox.classList.remove("errorplaceholder")
-            }, 5500)
-        }
-    })
-}
-
-$(document).ready(function() { 
-    document.getElementById("year").innerText = `${(new Date()).getFullYear() - 2018} years`
-
-    if (window.innerWidth > 860) {
-        header.style.backgroundImage = "linear-gradient(180deg, #0f141d, #0f141d00)"
-        header.style.boxShadow = "0px 0px"
-    }
-
-    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
-
-    if (hour < 18) {
-        if (hour < 1) {
-            document.getElementById("goodday").innerText = `Evening`;
-        } else if(hour > 11) {
-            document.getElementById("goodday").innerText = `Afternoon`;
-        } else {
-            document.getElementById("goodday").innerText = `Morning`;
-        }
+        window.scrollTo(0, 0);
     } else {
-        document.getElementById("goodday").innerText = `Evening`;
+        console.error("Cannot find popup: " + popup)
     }
+}
+
+function hideAllPopups() {
+    var backdrop = document.querySelector("#popup-bg");
+    backdrop.classList.remove("visible");
+
+    var popups = document.querySelectorAll(".popup");
+    popups.forEach(element => {
+        element.classList.remove("visible");
+    });
+
+    var vhides = document.querySelectorAll(".vhide");
+    vhides.forEach(element => { element.style.display = "block"; });
+
+    document.querySelector("body").style.overflow = "auto";
+}
+
+function sendbutton_visibility() {
+    var input = document.querySelector("#sendPMInput");
+    var button = document.querySelector("#sendPM");
+
+    if (input.value.length > 0) {
+        button.classList.add("visible");
+    } else {
+        button.classList.remove("visible");
+    }
+}
+
+async function ajaxWrapper(_ajax) {
+    return $.ajax (_ajax);
+}
+
+var debounce = false;
+
+function sendbutton_validate() {
+    var input = document.querySelector("#sendPMInput");
 
     try {
+        if (input.value.length > 0 && !debounce) {
+            debounce = true;
+            var _value = input.value;
+            var _xhr = "";
+            input.value = "";
+            input.placeholder = "> Sending message..."
+            ajaxWrapper({
+                type: "POST",
+                url: "https://api.specifix.dev/api/mailbox",
+                data: JSON.stringify({ "content": _value }),
+                contentType: "application/json",
+                success: function () {
+                    input.placeholder = "> Successfully sent!"
+                    debounce = false;
+                    setTimeout(() => {
+                        input.placeholder = "> send me a message anonymously"
+                    }, 1500)
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    _xhr = `${xhr.status} ${xhr.responseText}`
+
+                    input.value = "";
+                    input.placeholder = `> Error: ${_xhr}`;
+                    setTimeout(() => {
+                        input.placeholder = "> send me a message anonymously"
+                        debounce = false;
+                    }, 1500)
+                }
+            });
+        } else {
+            return
+        }
+    } catch (error) {
+        debounce = true;
+        input.value = "";
+        input.placeholder = `> ${error}`;
+        setTimeout(() => {
+            input.placeholder = "> send me a message anonymously"
+            debounce = false;
+        }, 1500)
+    } finally {
+        return sendbutton_visibility();
+    }
+}
+
+$(document).ready (()=> {
+    setTimeout(() => {
+        try { 
+            document.body = twemoji.parse(document.body, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
+        } catch (error) { console.log (error); }
+    }, 50);
+
+    try {
+        let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
+        let emoji = "☀️";
+        let daynight = "day";
+
+        if (hour < 18) {
+            if (hour < 6) {
+                emoji = `🌙`;
+                daynight = "evening";
+            }
+        } else {
+            emoji = `🌙`;
+            daynight = "evening";
+        }
+
         $.getJSON("https://api.specifix.dev/api/ip", function(data) {
-            document.getElementById("ip").textContent = ` ${data.ip}`;
+            document.querySelector("#ip").textContent = ` ${data.ip}${emoji}`;
+            document.querySelector("#daynight").textContent = daynight;
+            document.querySelector("#year").innerHTML = `${(new Date()).getMonth() > 3 ? "more than" : "almost"} <span class="blue">${(new Date()).getFullYear() - 2018} years ago</span>`
+            twemoji.parse(document.querySelector("#ip"), { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
         });
 
         $.getJSON("https://api.specifix.dev/api/subcount", function(data) {
-            document.getElementById("ytcount").innerText = `${data.subCount}`;
+            document.getElementById("subcount").textContent = `${data.subCount} subs`;
         })
-    } catch (err) {
-        console.log(err);
-    }
-
-    let sendButton = document.getElementById("sendmessage")
-    let messagebox = document.getElementById("messagebox")
-
-    sendButton.addEventListener("click", function() {
-        sendMessage(messagebox)
-    });
-    
-    var element = document.getElementById("mainpagecontainer")
-    element.addEventListener('scroll', event => {
-        debounce(() => {
-            var header = document.getElementById("header")
-            var logotext = document.getElementById("logotext");
-            var l_iptext = document.getElementById("logoiptext");
-            if (window.innerWidth > 900) {
-                var scroll = element.scrollTop/(window.innerHeight)//element.scrollTop/(element.scrollHeight - window.innerHeight)
-                if (scroll > 0.85) { // SHOW
-                    header.style.backgroundColor = "#151d29"
-                    header.style.boxShadow = "3px 3px 3px #0c0f14b2"
-                    logotext.classList.remove("centerlogotext")
-                    l_iptext.classList.remove("centerlogotextremove")
-                } else {
-                    header.style.backgroundColor = "#151d2900"
-                    header.style.boxShadow = "0px 0px"
-                    logotext.classList.add("centerlogotext")
-                    l_iptext.classList.add("centerlogotextremove")
-                }
-            } else { // SHOW
-                header.style.backgroundColor = "#151d29"
-                header.style.boxShadow = "3px 3px 3px #0c0f14b2"
-                logotext.classList.remove("centerlogotext")
-                l_iptext.classList.remove("centerlogotextremove")
-            } 
-        }, 100)
-    });
-});
-
+    } catch (error) { console.log(error); }
+})

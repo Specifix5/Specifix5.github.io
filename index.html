@@ -2,19 +2,22 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, initial-scale=1.0">
+        <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />
-        <link rel="stylesheet" type="text/css" href="style.css?version=2"> 
+        <meta name=”robots” content="index, follow">
+        <link rel="stylesheet" type="text/css" href="style.css"> 
 
+        <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="index.js"></script>
 
         <link rel="canonical" href="https://specifix.dev/">
 
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
         <link rel="manifest" href="/site.webmanifest">
 
         <title>Specifix.dev</title>
@@ -24,125 +27,87 @@
         <meta content="I'm Specifix, how are you?" name="description" />
         <meta content="https://specifix.dev/" property="og:url" />
         <meta content="#87d5ff" data-react-helmet="true" name="theme-color" />
-        <script type="text/javascript" src="stars.js"></script>
-        <script type="text/javascript" src="index.js?version=2"></script>
     </head>
-
     <body>
-        <header class="header" id="header">
-            <div class="header-right">
-                <a class="fade active" href="#about"><i class="fa-solid fa-question" style="color: #87d5ff;"></i>&nbsp;&nbsp;About</a>
-                <a class="fade" href="#projects"><i class="fa-solid fa-diagram-project" style="color: #87d5ff;"></i>&nbsp;&nbsp;My Works</a>
-                <a class="fade" href="#contact"><i class="fa-regular fa-address-book" style="color: #87d5ff;"></i>&nbsp;&nbsp;Contact Me</a>
-                <a class="fade removeeemob" href="mailto:alex@specifix.dev" target="_blank"><i class="fa-regular fa-envelope fa-lg" style="color: #87d5ff;"></i>&nbsp;&nbsp;Email Me</a>
-            </div>
-            <a href="#about">
-                <div class="logocontainer">
-                    <div class="logotext">
-                        <div class="centerlogotext fade" id="logotext"><span class="blue">specifix</span>.dev</div>
-                        <div class="iptext monofont centerlogotextremove fade" id="logoiptext"><span class="emerald">hello,</span><span class="ip" id="ip"> 32.32.32.32</span></div>
+        <div id="main-page">
+            <section id="home">
+                <div class="main-container">
+                    <div class="title-header unselectable">
+                        <img draggable="false" src="assets/images/specifix.png" class="tinyimage unselectable"><h1 class="title-text"><span class="text-backdrop blue">specifix</span>.dev</h1>
                     </div>
-                    <img class="headerlogo" style="transform: rotate(150deg);" src="assets/specifix.png">
-                    <!--<img src="https://count.getloli.com/get/@:name?theme=moebooru" alt=":name" />-->
-                </div>
-            </a>
-        </header>
-        <canvas class="bg" id="canvas" width="100%" height="100%"></canvas>
-
-        <div class="pagecontainer" id="mainpagecontainer">
-            <section class= "page fadein" id="about">
-                <div class="aboutcontainer">
-                    <div class="aboutinfo">
-                        <b>Good <span id="goodday">Afternoon</span>,</b>
-                        <h1>I'm <span class="blue">Specifix</span>!</h1>
-                        I love making random stuff in my free time.
-                        I quite like a lot of stuff like:
-                        <ul>
-                            <li>Animes, Music & Manga</li>
-                            <li>Mostly casual, sandbox games</li>
-                            <li>Doing the most random stuff</li>
-                            <li>Programming</li>
-                        </ul>
-                        <img class="arrow" style="transform: rotate(90deg) scaleY(-1);margin-top:-1em" src="assets/arrow.png">
-                        <div class="programmingtext">
-                            Programmer since <span class="blue">2018</span> (~<span id="year" class="emerald">6 years</span> and counting).
-                            I excel in <span class="blue">JS, TS, C#, Lua</span> (also learning many more!)
+                    <hr class="fade-right">
+                    <div class="sub-container-grid">
+                        <div class="info-box">
+                            hi there, <span class="blue" id="ip"></span>
+                            <br>
+                            i am <span class="blue">specifix</span>! ヾ(•ω•`)o 
+                            <br>
+                            i make random stuff!!
+                            <ul>
+                                <li>GitHub: <a href="https://github.com/Specifix5" target="_blank" class="text-backdrop social"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>Specifix5</a></li>
+                                <li>Discord: <a href="https://discord.specifix.dev/" target="_blank" class="text-backdrop social discord"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>specifix</a></li>
+                                <li>YouTube: <a href="https://www.youtube.com/@Specifix5" target="_blank" class="text-backdrop social youtube"><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i>Specifix5</a></li>
+                            </ul>
+                        </div>
+                        <div class="ascii-art">     <span class="blue">╱|</span>、<img src="assets/emotes/ahoge.webp" class="emoji ahoge" draggable="false">
+   (>   <<img src="assets/emotes/miku-hairclip.png" class="emoji miku-hair-clip" draggable="false">   <span class="blue">7</span> <span class="tiny"> ニャ~</span>
+     、  ⁻〵  <span class="blue">♡</span>
+    じしˍ, )ノ
                         </div>
                     </div>
-                    
-                    <div class="asciiart removeeeemob">
-                        <span class="blue removemob">♡</span> 
-                        <div id="omato" class="removemob"> ニャ~ ♡</div><br>
-                              <div>&nbsp;^</div><br>
-                              &nbsp;(&nbsp;`&nbsp;&nbsp;- &nbsp;<span>7</span> <div id="omato2" class="removemob"><a class="nodeco" href="mailto:alex@specifix.dev"><img class="emojisize" src="assets/mail.png"><br>email me</a></div> <br>
-                              &nbsp;|、⁻〵<br>
-                              &nbsp;じしˍ,)ノ
+                    <div class="message-box-container">
+                        <input id="sendPMInput" type="text" autocomplete="off" data-form-type="other" spellcheck="false" maxlength="512" autocapitalize="off" placeholder="> send me a message anonymously" aria-label="send me a message" oninput="sendbutton_visibility()" onkeydown="if(event.keyCode == 13) return sendbutton_validate();">
+                        <button id="sendPM" onclick="sendbutton_validate()"><i class="fa-solid fa-paper-plane fa-lg" aria-hidden="true"></i></button>
                     </div>
-
-                </div>
-            </section>
-            <section class="page opaque" id="projects">
-                <div class="ytcountcontainer">
-                    <h1>> THANKS FOR <span id="ytcount">500</span> SUBS_</h1>
-                </div>
-                <div class="projectcontainer">
-                    <h1>MY <span class="blue">FAV PROJECTS</span></h1>
-                    <span class="centerdesctext">— A collection of my projects, more on <a class="blue" href="https://github.com/Specifix5">GitHub</a> —</span>
-                    <div class="projlist">
-                        <div class="item item-ayamari">
-                            <h1>謝り Ayamari</h1>
-                            <div class="textcontainer">A Work in Progress roblox horror game I'm making, the story is about how disturbing a dream can be. I won't be spoiling too much of this WIP one :) </div>
-                        </div>
-                        <div class="item item-backrooms">
-                            <h1>the backrooms.rbx</h1>
-                            <div class="textcontainer">A roblox game showcasing the backrooms, explore the vast and seemingly infinite empty office space.</div>
-                            <a href="https://www.roblox.com/games/7840995544/the-backrooms-rbx-SHOWCASE" target="_blank"><button ><i class="fa-solid fa-arrow-up-right-from-square"> </i> Check it out</button></a>
-                        </div>
-                        <div class="item item-pixelnet" id="pixelnet">
-                            <h1>PixelNET</h1>
-                            <div class="textcontainer">A .NET demo on which I've created an app that is able to set video as your wallpaper (essentially animated wallpapers)</div>
-                            <a href="https://github.com/Specifix5/PixelNET" target="_blank"><button ><i class="fa-solid fa-arrow-up-right-from-square"> </i> Check it out</button></a>
-                        </div>
+                    <div class="button-cluster">
+                        <button onclick="showPopup('about-me')">❓ about me</button>
+                        <button onclick="showPopup('contacts')">📧 contacts</button>
                     </div>
                 </div>
             </section>
-            <section class="page opaque2" id="contact">
-                <div class="socialcontainer">
-                    <div class="social-text-wrapper">
-                        <h2>WHERE YOU CAN</h2>
-                        <h1 class="big blue">FIND ME</h1>
-                        <div class="right removemob">These are my <span class="blue">only socials</span>, so if you see someone pretending to be me somewhere else, it's probably an impersonator and not to be taken seriously. Avoid them and stay safe!</div>
-                        <span class="centerdesctext removedesktop">— My only social media —</span>
-                    </div>
-                    <div class="buttons">
-                        <a href="https://www.youtube.com/@Specifix5" target="_blank">
-                            <button class="social-youtube"><i class="fa-brands fa-youtube fa-lg"></i> <div><span class="val">@Specifix5</span> <br>YouTube</div></button>
-                        </a>
-                        <a href="https://twitter.com/ThatIsSpecifix" target="_blank">
-                            <button class="social-twitter inactive-account" onmouseover="xMouseOver()" onmouseout="xMouseOut()"><i class="fa-brands fa-twitter fa-lg"></i> <div><span class="val">@ThatIsSpecifix</span> <br>Twitter/X</div></button>
-                        </a>
-                        <a href="https://github.com/Specifix5/" target="_blank">
-                            <button class="social-github"><i class="fa-brands fa-github fa-lg"></i> <div><span class="val">@Specifix5</span> <br>GitHub</div></button>
-                        </a>
-                        <a href="https://discord.specifix.dev/" target="_blank">
-                            <button class="social-discord"><i class="fa-brands fa-discord fa-lg"></i> <div><span class="val">@specifix</span> <br>Discord</div></button>
-                        </a>
-                    </div>
-                    
-                    <div class="messagebox-wrapper">
-                        <img src="assets/snowycat.png" class="cat">
-                        <img src="assets/sleep.gif" class="sleep">
-                        <input id="messagebox" class="messagebox" placeholder="Message me anonymously!">
-                        <button id="sendmessage" class="sendmessage"><i class="fa-solid fa-paper-plane fa-lg"></i></button>
-                    </div>
-                </div>
-            </section>
-            <footer class="footer">
-                <span class="translucent">how many people have visited so far..</span>
-                <br><br>
-                <img src="https://count.specifix.dev/get/@visitors?theme=moebooru" />
-                <br><br><span class="big"><a class="nodecot blue" href="#about">Back to Top</a> | &lt;/specifix.dev&gt; | <a class="nodecot blue"  href="https://github.com/Specifix5/Specifix5.github.io" target="_blank">Source</a> </span>
+            <footer class="vhide">
+                <span class="tiny">specifix <|> <a href="" class="blue">view source</a></span>
             </footer>
+        </div>
+        <div id="popup-bg" class="popup-bg" onclick="hideAllPopups()"></div>
+        <div id="about-me" class="popup">
+            <div class="p-title">🌟 about me</div>
+            <div class="p-area">
+                <img src="assets/images/hmm.png"><br>
+                Hey there, I am <span class="blue">Specifix</span>! Just another person surfing the internet. I code sometimes, mostly for fun, and I play a lot of games too—I find rhythm and sandbox games the most fun though.
+<br><br>
+I started programming around <span class="blue text-backdrop">Mar-Apr 2018</span>, which is <span id="year">almost <span class="blue">6 years ago</span></span>! I am a self-taught programmer and my first 'game' was a snake game written in C++ (that I basically ripped off of a YouTube tutorial, but hey, I was proud when it worked and It was the first time ever i worked on programming.. Just a neat little backstory :).
+<br><br>
+Moving on, I usually create projects based on things that pique my interests. Sometimes I could be working on a Roblox game, and other times I could be working on a Minecraft mod, or other projects.
+<br><br>
+Currently, I am working to expand my programming skills even more, getting into <span class="blue text-backdrop">Kotlin</span> and <span class="text-backdrop">Rust</span> as well, so I can cure my <span class="emerald">node.js</span> dependency (no pun intended). Right now
+I am proficient at using <span class="blue text-backdrop">JS</span>/<span class="text-backdrop">TS</span> <span class="blue text-backdrop">Luau</span> <span class="text-backdrop">C#</span> and getting there with <span class="blue text-backdrop">Java</span> <span class="text-backdrop">C++</span> and our beloved <span class="blue text-backdrop">Python</span>
+<br><br>
+Also, I think I'm decent at web designing I guess..
+            </div>
+            <div class="p-footer"><button onclick="hideAllPopups()">< Back</button></div>
+        </div>
+        <div id="contacts" class="popup">
+            <div class="p-title"><img src="assets/emotes/miku_happy.webp" class="emoji" draggable="false"> my contacts</div>
+            <div class="p-area">
+                <img src="assets/images/cats.png"><br>
+                I have a few socials/profiles! Anyone other than the ones listed below is probably an impersonator and should be ignored. <span class="blue">Here are the list:</span><br>
+                <ul>
+                    <li><span class="blue">GitHub</span>: <a href="https://github.com/Specifix5" target="_blank" class="text-backdrop social"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>Specifix5</a></li>
+                    <li><span class="blue">Discord</span>: <a href="https://discord.specifix.dev/" target="_blank" class="text-backdrop social discord"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>specifix</a></li>
+                    <li><span class="blue">YouTube</span>: <a href="https://www.youtube.com/@Specifix5" target="_blank" class="text-backdrop social youtube"><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i>Specifix5</a></li>
+                    <li><span class="blue">X/Twitter</span>: <a href="https://x.com/ThatIsSpecifix" target="_blank" class="text-backdrop social twitter"><i class="fa-brands fa-x-twitter fa-lg" aria-hidden="true"></i>ThatIsSpecifix</a></li>
+                    <li><span class="blue">Roblox</span>: <a href="https://www.roblox.com/users/2233446594/profile" target="_blank" class="text-backdrop social roblox"><svg class="web-blox-css-tss-nvpyzg-logo" width="18" height="18" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.78817 0.975342L3.21606 14.3004L12.3069 16.7337L13.4424 12.4994L29.5881 16.8264L32.0247 7.73884L6.78817 0.975342Z" fill="currentColor"></path><path d="M18.6069 21.448L2.46124 17.1211L0.0246582 26.2119L25.2611 32.9754L28.8332 19.6504L19.7424 17.2138L18.6069 21.448Z" fill="currentColor"></path></svg>Specifix5</a></li>
+                </ul>
+                Email and inquiries at <a href="mailto:alex@specifix.dev" target="_blank" class="text-backdrop social blue"><i class="fa-solid fa-envelope" aria-hidden="true"></i>alex@specifix.dev</a><br>
+                Have a good <span id="daynight">day</span>! <br>
+                <br>
+                All time visitors: <br>
+                <img src="https://count.specifix.dev/get/@visitors?theme=moebooru"><br>
+                Also, thank you for <span id="subcount" class="blue">500 subs</span> on YT!! ❤<br>
+                <span class="footnote">(Cat ascii pics at the start of my about me and this page is a character named Mona/モナー from 2channel)</span>
+            </div>
+            <div class="p-footer"><button onclick="hideAllPopups()">< Back</button></div>
         </div>
     </body>
 </html>
