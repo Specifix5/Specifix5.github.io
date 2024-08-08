@@ -89,7 +89,7 @@ input {
     height: 300px;
     max-width: 475px;
     text-align: center;
-    margin: auto;
+    margin-bottom: 65px;
 }
 
 section#home {
@@ -305,7 +305,7 @@ hr.invis {
     color: var(--accent);
     font-family: var(--font-mono);
     font-size: 1em;
-    transition: transform 50ms;
+    transition: transform 100ms;
     margin: auto;
 }
 
@@ -354,7 +354,7 @@ hr.invis {
     color: inherit;
     font-family: inherit;
     opacity: 0%;
-    transition: transform 50ms, opacity 100ms;
+    transition: transform 100ms, opacity 100ms;
 }
 
 .popup-bg, .popup {
@@ -371,7 +371,7 @@ hr.invis {
     top: 50%;
     height: 95vh;
     transform: translate(-50%, 50%) scale(0);
-    transition: transform 50ms;
+    transition: transform 100ms;
     border: solid 3px var(--accent-3);
     border-radius: 8px;
 
@@ -448,7 +448,7 @@ hr.invis {
     -webkit-backdrop-filter: blur(8px); /* Safari */
     /* Exclusion blend */
     background-blend-mode: exclusion;
-    transition: backdrop-filter 50ms;
+    transition: backdrop-filter 100ms;
     left: 0px;
     top: 0px;
     width: 100vw;

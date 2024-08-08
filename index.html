@@ -5,7 +5,7 @@
         <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name=”robots” content="index, follow">
-        <link rel="stylesheet" type="text/css" href="style.css"> 
+        <link rel="stylesheet" type="text/css" href="style.css?v=2"> 
 
         <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
@@ -28,7 +28,7 @@
         <meta content="https://specifix.dev/" property="og:url" />
         <meta content="#87d5ff" data-react-helmet="true" name="theme-color" />
     </head>
-    <body>
+    <body class="unselectable">
         <div id="main-page">
             <section id="home">
                 <div class="main-container">
@@ -43,13 +43,13 @@
                             i am <span class="blue">specifix</span>! ヾ(•ω•`)o 
                             <br>
                             i make random stuff!!
-                            <ul>
+                            <ul class="unselectable" draggable="false">
                                 <li>GitHub: <a href="https://github.com/Specifix5" target="_blank" class="text-backdrop social"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>Specifix5</a></li>
                                 <li>Discord: <a href="https://discord.specifix.dev/" target="_blank" class="text-backdrop social discord"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>specifix</a></li>
                                 <li>YouTube: <a href="https://www.youtube.com/@Specifix5" target="_blank" class="text-backdrop social youtube"><i class="fa-brands fa-youtube fa-lg" aria-hidden="true"></i>Specifix5</a></li>
                             </ul>
                         </div>
-                        <div class="ascii-art">     <span class="blue">╱|</span>、<img src="assets/emotes/ahoge.webp" class="emoji ahoge" draggable="false">
+                        <div class="ascii-art unselectable" draggable="false">     <span class="blue">╱|</span>、<img src="assets/emotes/ahoge.webp" class="emoji ahoge" draggable="false">
    (>   <<img src="assets/emotes/miku-hairclip.png" class="emoji miku-hair-clip" draggable="false">   <span class="blue">7</span> <span class="tiny"> ニャ~</span>
      、  ⁻〵  <span class="blue">♡</span>
     じしˍ, )ノ
@@ -75,15 +75,16 @@
             <div class="p-area">
                 <img src="assets/images/hmm.png"><br>
                 Hey there, I am <span class="blue">Specifix</span>! Just another person surfing the internet. I code sometimes, mostly for fun, and I play a lot of games too—I find rhythm and sandbox games the most fun though.
-<br><br>
-I started programming around <span class="blue text-backdrop">Mar-Apr 2018</span>, which is <span id="year">almost <span class="blue">6 years ago</span></span>! I am a self-taught programmer and my first 'game' was a snake game written in C++ (that I basically ripped off of a YouTube tutorial, but hey, I was proud when it worked and It was the first time ever i worked on programming.. Just a neat little backstory :).
-<br><br>
-Moving on, I usually create projects based on things that pique my interests. Sometimes I could be working on a Roblox game, and other times I could be working on a Minecraft mod, or other projects.
-<br><br>
-Currently, I am working to expand my programming skills even more, getting into <span class="blue text-backdrop">Kotlin</span> and <span class="text-backdrop">Rust</span> as well, so I can cure my <span class="emerald">node.js</span> dependency (no pun intended). Right now
-I am proficient at using <span class="blue text-backdrop">JS</span>/<span class="text-backdrop">TS</span> <span class="blue text-backdrop">Luau</span> <span class="text-backdrop">C#</span> and getting there with <span class="blue text-backdrop">Java</span> <span class="text-backdrop">C++</span> and our beloved <span class="blue text-backdrop">Python</span>
-<br><br>
-Also, I think I'm decent at web designing I guess..
+                <br><br>
+                I am a self-taught programmer and I started programming around <span class="blue text-backdrop">Mar-Apr 2018</span>, which is <span id="year">almost <span class="blue">6 years ago</span></span>!
+                <br><br>
+                Currently, I am working to expand my programming skills even more. Right now
+                I am proficient at using <span class="blue text-backdrop">JS/TS</span> <span class="blue text-backdrop">Luau</span> 
+                <span class="text-backdrop">C#</span> and getting there with <span class="text-backdrop">Java</span> <span class="blue text-backdrop">Kotlin</span> <span class="text-backdrop">C++</span> and our beloved <span class="blue text-backdrop">Python</span> :>
+                <br><br>
+                <img src="assets/images/mikuuu.gif">
+                <br>
+                <span class="footnote">(miku haha)</span> <img src="assets/emotes/miku_smug.webp" class="emoji" draggable="false">
             </div>
             <div class="p-footer"><button onclick="hideAllPopups()">< Back</button></div>
         </div>
