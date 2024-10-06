@@ -18,6 +18,7 @@
     --buttons: #1a2233;
     --font-mono: 'JetBrains Mono';
     --font-reg: 'Rubik';
+    --button-radius: 9px;
     
     /* 
         Social Media Color Themes
@@ -94,6 +95,7 @@ input {
 
 section#home {
     height: 100vh;
+    max-height: 100%;
     flex-direction: row;
     display: flex;
     justify-content: center;
@@ -226,6 +228,7 @@ img.emoji {
     width: 1.35em;
     margin: 0.05em 0.1em;
     vertical-align: -0.35em;
+    border-radius: 0px;
 }
 
 .tiny img.emoji {
@@ -299,7 +302,7 @@ hr.invis {
     height: 100%;
     width: 100%;
     padding: 0.5em;
-    border-radius: 9px;
+    border-radius: var(--button-radius);
     background-color: var(--buttons);
     border: solid 1px var(--accent-2);
     color: var(--accent);
@@ -322,7 +325,7 @@ hr.invis {
     max-width: 85%;
     height: 1.25em;
     padding: 0.6em;
-    border-radius: 9px;
+    border-radius: var(--button-radius);
     background-color: var(--buttons);
     border: solid 1px var(--accent-2);
     color: var(--accent);
@@ -373,7 +376,7 @@ hr.invis {
     transform: translate(-50%, 50%) scale(0);
     transition: transform 100ms;
     border: solid 3px var(--accent-3);
-    border-radius: 8px;
+    border-radius: var(--button-radius);
 
     display: grid;
     grid-template-rows: auto 1fr auto;
@@ -383,7 +386,7 @@ hr.invis {
 
 .popup button {
     padding: 0.5em;
-    border-radius: 9px;
+    border-radius: var(--button-radius);
     background-color: var(--buttons);
     border: solid 1px var(--accent-2);
     color: var(--accent);
@@ -409,8 +412,13 @@ hr.invis {
 }
 
 .popup .p-area img {
-    border-radius: 8px;
+    border-radius: var(--button-radius);
     max-width: 100%;
+}
+
+.popup .p-area img.emoji {
+    width: 35px;
+    height: 35px;
 }
 
 
@@ -421,24 +429,28 @@ hr.invis {
     background-color: var(--accent-3);
 }
 
-#contacts > .p-area > ul {
+.p-area > ul {
     padding-left: 0px;
 }
 
-#contacts > .p-area > ul > li {
+#about-me .p-area > ul {
+    margin-top: 3px;
+}
+
+.p-area > ul > li {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
-#contacts > .p-area > .text-backdrop {
+.p-area > .text-backdrop {
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
 }
 
 
-#contacts > .p-area > ul > li::before {
+.p-area > ul > li::before {
     content: "* ";
 }
 
@@ -481,6 +493,13 @@ hr.invis {
 
 .gold {
     color: var(--gold)
+}
+
+img.emoji.symbol {
+    filter: opacity(0.6) drop-shadow(0 0 0 currentcolor) saturate(250%);
+    margin-right: 2px;
+    margin-bottom: -3px;
+    transform: scale(80%);
 }
 
 footer span {

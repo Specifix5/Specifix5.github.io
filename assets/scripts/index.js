@@ -42,8 +42,54 @@ function sendbutton_visibility() {
     }
 }
 
-async function ajaxWrapper(_ajax) {
-    return $.ajax (_ajax);
+async function getJSON(url, func) {
+    var success = false
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        success = true
+  
+        const json = await response.json();
+        if (func != null) {
+            func(json)
+        } else {
+            return success, json;
+        }
+    } catch (error) {
+        console.error(error.message);
+        return success, error;
+    }
+}
+
+async function postJSON(url, json, successFunc, errorFunc) {
+    var success = false
+    try {
+        const response = await fetch(url, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: 'POST',
+            body: JSON.stringify(json)
+        });
+
+        if (!response.ok) {
+            errorFunc(response)
+            throw new Error(`Error status: ${response.status}`);
+        }
+        success = true
+  
+        const res = await response;
+        if (successFunc != null) {
+            successFunc(res)
+        } else {
+            return success, res;
+        }
+    } catch (error) {
+        console.error(error);
+        return success, error;
+    }
 }
 
 var debounce = false;
@@ -58,20 +104,16 @@ function sendbutton_validate() {
             var _xhr = "";
             input.value = "";
             input.placeholder = "> Sending message..."
-            ajaxWrapper({
-                type: "POST",
-                url: "https://api.specifix.dev/api/mailbox",
-                data: JSON.stringify({ "content": _value }),
-                contentType: "application/json",
-                success: function () {
+            postJSON("https://api.specifix.dev/api/mailbox", { content: _value }, 
+                function (res) {
                     input.placeholder = "> Successfully sent!"
                     debounce = false;
                     setTimeout(() => {
                         input.placeholder = "> send me a message anonymously"
                     }, 1500)
                 },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    _xhr = `${xhr.status} ${xhr.responseText}`
+                async function (xhr) {
+                    _xhr = `${xhr.status} ${await xhr.text()}`
 
                     input.value = "";
                     input.placeholder = `> Error: ${_xhr}`;
@@ -80,7 +122,7 @@ function sendbutton_validate() {
                         debounce = false;
                     }, 1500)
                 }
-            });
+            )
         } else {
             return
         }
@@ -97,7 +139,8 @@ function sendbutton_validate() {
     }
 }
 
-$(document).ready (()=> {
+document.addEventListener("DOMContentLoaded", ()=> {
+    window.scrollTo(0, 0);
     setTimeout(() => {
         try { 
             document.body = twemoji.parse(document.body, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
@@ -119,14 +162,14 @@ $(document).ready (()=> {
             daynight = "evening";
         }
 
-        $.getJSON("https://api.specifix.dev/api/ip", function(data) {
+        getJSON("https://api.specifix.dev/api/ip", function(data) {
             document.querySelector("#ip").textContent = ` ${data.ip}${emoji}`;
             document.querySelector("#daynight").textContent = daynight;
             document.querySelector("#year").innerHTML = `${(new Date()).getMonth() > 3 ? "more than" : "almost"} <span class="blue">${(new Date()).getFullYear() - 2018} years ago</span>`
             twemoji.parse(document.querySelector("#ip"), { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' });
         });
 
-        $.getJSON("https://api.specifix.dev/api/subcount", function(data) {
+        getJSON("https://api.specifix.dev/api/subcount", function(data) {
             document.getElementById("subcount").textContent = `${data.subCount} subs`;
         })
     } catch (error) { console.log(error); }

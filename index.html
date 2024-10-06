@@ -5,13 +5,12 @@
         <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name=”robots” content="index, follow">
-        <link rel="stylesheet" type="text/css" href="style.css?v=2"> 
+        <link rel="stylesheet" type="text/css" href="assets/styles/main.css?v=2"> 
 
         <script src="https://unpkg.com/twemoji@latest/dist/twemoji.min.js" crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/5286365903.js" crossorigin="anonymous"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="index.js"></script>
+        <script src="assets/scripts/index.js"></script>
 
         <link rel="canonical" href="https://specifix.dev/">
 
@@ -40,7 +39,7 @@
                         <div class="info-box">
                             hello, <span class="blue" id="ip"></span>
                             <br>
-                            i am <span class="blue">specifix</span>! ヾ(•ω•`)o 
+                            i'm <span class="blue">specifix</span>! ヾ(•ω•`)o 
                             <br>
                             i make random stuff!!
                             <ul class="unselectable" draggable="false">
@@ -50,7 +49,7 @@
                             </ul>
                         </div>
                         <div class="ascii-art unselectable" draggable="false">     <span class="blue">╱|</span>、<img src="assets/emotes/ahoge.webp" class="emoji ahoge" draggable="false">
-   (>   <<img src="assets/emotes/miku-hairclip.png" class="emoji miku-hair-clip" draggable="false">   <span class="blue">7</span> <span class="tiny"> ニャ~</span>
+   (>   <<img src="assets/emotes/miku_hairclip.png" class="emoji miku-hair-clip" draggable="false">   <span class="blue">7</span> <span class="tiny"> ニャ~</span>
      、  ⁻〵  <span class="blue">♡</span>
     じしˍ, )ノ
                         </div>
@@ -65,32 +64,42 @@
                     </div>
                 </div>
             </section>
-            <footer class="vhide">
-                <span class="tiny">specifix <|> <a href="https://github.com/Specifix5/Specifix5.github.io" class="blue">view source</a></span>
-            </footer>
         </div>
         <div id="popup-bg" class="popup-bg" onclick="hideAllPopups()"></div>
         <div id="about-me" class="popup">
-            <div class="p-title">🌟 about me</div>
+            <div class="p-title"><img src="assets/emotes/blue_glowing_star.webp" class="emoji" draggable="false"> about me</div>
             <div class="p-area">
-                <img src="assets/images/hmm.png"><br>
+                <img src="assets/images/mikubeach-cropped.png"><br>
                 Hey there, I am <span class="blue">Specifix</span>! Just another person surfing the internet. I code sometimes, mostly for fun, and I play a lot of games too—I find rhythm and sandbox games the most fun though.
                 <br><br>
-                I am a self-taught programmer and I started programming around <span class="blue text-backdrop">Mar-Apr 2018</span>, which is <span id="year">almost <span class="blue">6 years ago</span></span>!
+                I am a full-stack dev and I started programming around <span class="blue text-backdrop">Mar-Apr 2018</span>, which is <span id="year">almost <span class="blue">6 years ago</span></span>!
                 <br><br>
-                Currently, I am working to expand my programming skills even more. Right now
-                I am proficient at using <span class="blue text-backdrop">JS/TS</span> <span class="blue text-backdrop">Luau</span> 
-                <span class="text-backdrop">C#</span> and getting there with <span class="text-backdrop">Java</span> <span class="blue text-backdrop">Kotlin</span> <span class="text-backdrop">C++</span> and our beloved <span class="blue text-backdrop">Python</span> :>
+                Currently working to expand my programming skills even more. <span class="blue">Proficient at using:</span>
+                <ul>
+                    <li><span class="blue"><img src="assets/emotes/languages/typescript.webp" class="emoji symbol" draggable="false">TypeScript/JavaScript</span></li>
+                    <li><span class="blue"><img src="assets/emotes/languages/lua.webp" class="emoji symbol" draggable="false">Lua/Luau</span></li>
+                    <li><img src="assets/emotes/languages/java.webp" class="emoji symbol" draggable="false">Java</li>
+                    <li><img src="assets/emotes/languages/csharp.webp" class="emoji symbol" draggable="false">C#</li>
+                </ul>
+                And I'm learning <span class="blue">many more</span>! I often make tiny projects sometimes ranging from <span class="blue">game mods (such as Minecraft, etc)</span> to the most random stuff you could imagine, out of boredom! And the most surprising
+                fact is that it'll come in handy a few or more projects later..
+                
+                <br><br>
+                Oh and.. I think I know a thing or two about web design..
+                <br><br>
+                <span class="footnote">
+                    haha miku!!!!!
+                </span>
                 <br><br>
                 <img src="assets/images/mikuuu.gif">
             </div>
             <div class="p-footer"><button onclick="hideAllPopups()">< Back</button></div>
         </div>
         <div id="contacts" class="popup">
-            <div class="p-title"><img src="assets/emotes/miku_happy.webp" class="emoji" draggable="false"> my contacts</div>
+            <div class="p-title"><img src="assets/emotes/light_blue_heart.svg" class="emoji" draggable="false"> my contacts</div>
             <div class="p-area">
-                <img src="assets/images/cats.png"><br>
-                I have a few socials/profiles! Anyone other than the ones listed below is probably an impersonator and should be ignored. <span class="blue">Here are the list:</span><br>
+                <img src="assets/images/mikubeach-cropped-2.png"><br>
+                I have a few socials/profiles! Anyone other than the ones listed below is probably an impersonator so take it with a grain of salt. Anyway, <span class="blue">here's the list:</span><br>
                 <ul>
                     <li><span class="blue">GitHub</span>: <a href="https://github.com/Specifix5" target="_blank" class="text-backdrop social"><i class="fa-brands fa-github fa-lg" aria-hidden="true"></i>Specifix5</a></li>
                     <li><span class="blue">Discord</span>: <a href="https://discord.specifix.dev/" target="_blank" class="text-backdrop social discord"><i class="fa-brands fa-discord fa-lg" aria-hidden="true"></i>specifix</a></li>
@@ -103,8 +112,10 @@
                 <br>
                 All time visitors: <br>
                 <img src="https://count.specifix.dev/get/@visitors?theme=moebooru"><br>
-                Also, thank you for <span id="subcount" class="blue">500 subs</span> on YT!! ❤<br>
-                <span class="footnote">(Cat ascii pics at the start of my about me and this page is a character named Mona/モナー from 2channel)</span>
+                Also, thank you for <span id="subcount" class="blue">500 subs</span> on YT!! <img src="assets/emotes/miku_show.webp" class="emoji" draggable="false"> <br>
+                <span class="footnote">
+                    view source code on <a href="https://github.com/Specifix5/Specifix5.github.io" class="blue">github</a>.
+                </span>
             </div>
             <div class="p-footer"><button onclick="hideAllPopups()">< Back</button></div>
         </div>
