@@ -1,0 +1,38 @@
+---
+import InfoContainer from '../components/infoContainer.astro'
+import MainLayout from '../layouts/mainLayout.astro'
+---
+
+<MainLayout>
+  <div class="div404">
+    <h1 class="tiny"><span class="text-backdrop blue">404 Not Found</span></h1>
+    <br>
+    There's really nothing here! or it somehow failed to load the page..
+    <br><br>
+    <img src="/emotes/miku_show.webp" class="emoji" draggable="false"><br><br>
+    <span class="footnote">(except miku ofc)</span>
+    <br><br>
+    <button class="fancyButton" onclick="window.history.go(-1); return false;">
+      {'<'} Return
+    </button>
+    <button class="fancyButton" onclick="location.href='https://specifix.dev/';">
+      <span class="blue">{'>'} Home</span>
+    </button>
+  </div>
+</MainLayout>
+
+<style lang="scss">
+  div.div404 {
+    width: 100vw;
+    max-width: 350px;
+  }
+
+  h1.tiny {
+    font-size: 1.3em;
+  }
+
+  .emoji {
+    margin: 10px;
+    transform: scale(2);
+  }
+</style>

@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
+:root {
+    --accent: rgb(225, 225, 225) ;
+    --blue: #87d5ff;
+    --emerald: #98C379;
+    --gold: #f5c96a;
+    --accent-2: #333f50;
+    --button-accent-hover: #667488;
+    --accent-3: #333f509d;
+    --background: #121822;
+    --buttons: #1a2233;
+    --font-mono: 'JetBrains Mono';
+    --font-reg: 'Rubik';
+    --button-radius: 9px;
+    
+    /* 
+        Social Media Color Themes
+    */
+    --color-discord: #5865f2;
+    --color-youtube: #cf3e3e;
+    --color-twitter: #3d3d3d;
+    --color-roblox: #000000;
+    color-scheme: dark;
+
+    /*
+        Programming Language Color Themes
+    */
+
+    --color-kt-bg: #806EE3;
+    --color-kt-fg: var(--accent);
+
+    --color-rs-bg: #F74C00;
+    --color-rs-fg: var(--accent);
+
+    --color-js-bg: #F0DB4F;
+    --color-js-fg: #323330;
+
+    --color-ts-bg: #3178C6;
+    --color-ts-fg: var(--accent);
+
+    --color-luau-bg: #00A2FF;
+    --color-luau-fg: var(--accent);
+
+    --color-cs-bg: #68217A;
+    --color-cs-fg: var(--accent);
+
+    --color-java-bg: #F8981D;
+    --color-java-fg: var(--accent);
+
+    --color-cpp-bg: #00599C;
+    --color-cpp-fg: var(--accent);
+
+    --color-py-bg: #3771A1;
+    --color-py-fg: #FFD242;
+}
+
+html {
+    font-family: var(--font-mono);
+    cursor: url("/cursors/miku_normal.cur"), auto;
+}
+
+body {
+    background-image: linear-gradient(180deg, #0f141d, var(--background), #0f141d) ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--accent);
+
+    text-align: center;
+}
+
+button {
+    cursor: url("/cursors/miku_sing.cur"), auto;
+}
+
+a {
+    cursor: url("/cursors/miku_hand.cur"), auto;
+}
+
+input {
+    cursor: url("/cursors/miku_beam.cur"), auto;
+}
+
+.blue {
+    color: var(--blue);
+}
+
+img.emoji {
+    height: 1.35em;
+    width: 1.35em;
+    margin: 0.05em 0.1em;
+    vertical-align: -0.35em;
+    border-radius: 0px;
+}
+
+.center {
+    margin: auto;
+}
+
+.text-backdrop {
+    border-radius: 6px;
+    background: var(--accent);
+    color: var(--background);
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.text-backdrop.blue {
+    background: var(--blue);
+    color: var(--background);
+}
+
+hr {
+    margin-top:8px;
+    margin-bottom: 0px;
+}
+
+hr.fade-right {
+    background: linear-gradient(90deg, #1a233100, var(--accent-2),var(--accent-2), var(--accent-2), var(--accent-2),var(--accent-2), var(--accent-2), #1a233100);
+    height: 1px;
+    border: none;
+}
+
+a.social {
+    text-decoration: none;
+}
+
+a.social i, a.social.roblox > svg {
+    margin-right: 0.15em;
+}
+
+a.social.discord {
+    background: var(--color-discord);
+    color: var(--accent);
+}
+
+a.social.youtube {
+    background: var(--color-youtube);
+    color: var(--accent);
+}
+
+a.social.twitter {
+    background: var(--color-twitter);
+    color: var(--accent);
+}
+
+a.social.roblox {
+    background-color: var(--color-roblox);
+    color: var(--accent);
+}
+
+ul li {
+    margin-left: -1.25em;
+}
+
+.unselectable {
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+span.footnote {
+    opacity: 50%;
+    font-size: 0.85em;
+}
+
+button.fancyButton {
+    padding: 0.5em;
+    border-radius: var(--button-radius);
+    background-color: var(--buttons);
+    border: solid 1px var(--accent-2);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 1em;
+    transition: transform 100ms;
+    margin: auto;
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  } 
+
+svg[data-icon] {
+    transform: scale(1.2) translateY(0.15em);
+    margin-right: 5px;
+    margin-left: 2px;
+}

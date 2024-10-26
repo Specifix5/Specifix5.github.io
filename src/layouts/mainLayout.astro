@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/baseHead.astro"
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+    
+    <BaseHead title="Specifix" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style lang="scss">
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+</style>
