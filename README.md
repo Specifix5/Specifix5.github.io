@@ -1,6 +1,6 @@
 # [specifix.dev](https://specifix.dev)
 My personal readme website type of thing \
-will also used to show you the stuff im working on
+will also used to show you the stuff im working on.
   
 # credits
 * [iconify](https://iconify.design)
