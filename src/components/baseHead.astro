@@ -2,18 +2,35 @@
 const { title } = Astro.props
 import "../styles/main.scss"
 ---
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name=”robots” content="index, follow">
+<!-- Primary Meta Tags -->
+<title>Specifix.dev</title>
+<meta name="title" content={title}>
+<meta name="description" content="i'm specifix, this is my meow site 😸😸">
+<meta name="robots" content="index, follow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#87D5FF">
 
+<!-- Canonical Link -->
 <link rel="canonical" href="https://specifix.dev/">
 
+<!-- Favicon Links -->
 <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 
-<title>Specifix.dev</title>
-<meta name="og:title" content="{title}" property="og:title" />
-<meta name="og:site_name" content="specifix.dev" property="og:site_name" />
-<meta name="og:description" content="I'm Specifix, how are you?" property="og:description" />
-<meta content="I'm Specifix, how are you?" name="description" />
-<meta content="https://specifix.dev/" property="og:url" />
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://specifix.dev/">
+<meta property="og:title" content="Specifix.dev">
+<meta property="og:description" content="I'm Specifix, how are you?">
+<meta property="og:image" content="/images/miku_seo.jpg">
+<meta property="og:site_name" content="specifix.dev">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="https://specifix.dev/">
+<meta name="twitter:title" content="Specifix.dev">
+<meta name="twitter:description" content="I'm Specifix, how are you?">
+<meta name="twitter:image" content="/images/miku_seo.jpg">
+<meta name="twitter:site" content="@ThatIsSpecifix"> <!-- Replace with actual Twitter handle if available -->
