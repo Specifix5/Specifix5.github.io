@@ -28,6 +28,7 @@
     transition: transform 100ms;
     border: solid 3px var(--accent-3);
     border-radius: var(--button-radius);
+    box-shadow: 0px 0px 8px var(--accent-3);
 
     position: fixed;
 

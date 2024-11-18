@@ -86,6 +86,10 @@ input {
     color: var(--blue);
 }
 
+.underline {
+    text-decoration: underline;
+}
+
 img.emoji {
     height: 1.35em;
     width: 1.35em;
@@ -151,7 +155,13 @@ a.social.roblox {
 }
 
 ul li {
-    margin-left: -1.25em;
+    margin-left: -2.2em;
+    list-style: none;
+}
+
+ul li::before {
+    content: "☆ ";
+    font-weight: 500;
 }
 
 .unselectable {
@@ -175,11 +185,12 @@ button.fancyButton {
     color: var(--accent);
     font-family: var(--font-mono);
     font-size: 1em;
-    transition: transform 100ms;
+    transition: transform 100ms box-shadow 100ms;;
     margin: auto;
 
     &:hover {
       filter: brightness(1.1);
+      box-shadow: 0px 0px 8px var(--accent-3);
     }
 
     &:active {

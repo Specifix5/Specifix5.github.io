@@ -18,7 +18,7 @@
         daynight = "evening";
       }
 
-      document.querySelector("#daynight")!.textContent = `${daynight} ${emoji}`;
+      document.querySelector("#daynight")!.textContent = `${daynight}${emoji}`;
       parseEmoji(document.querySelector("#daynight")! as HTMLElement);
     } catch (error) { console.log(error); }
   })

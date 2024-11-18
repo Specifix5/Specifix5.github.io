@@ -1,10 +1,10 @@
 ---
-
+  import Emoji from '../components/emoji.astro'
 ---
 
 <div class="ascii-art" draggable="false">     &#x20;<span class="blue">╱|</span>、<img src="/emotes/ahoge.webp" class="emoji ahoge" draggable="false">
   (&#x3E;   &#x3C;<img src="/emotes/miku_hairclip.png" class="emoji miku-hair-clip" draggable="false">&#x20;&#x20;<span class="blue">&#x20;7</span> <span class="tiny"> ニャ~</span>
-&#x20;&#x20;、  ⁻〵 &#x20;<span class="blue">♡</span>
+&#x20;&#x20;、  ⁻〵 &#x20;<Emoji label="snowflake" symbol='❄️' class="tiny-emoji"></Emoji>
 &#x20;じしˍ, )ノ
 </div>
 
@@ -21,6 +21,10 @@
   .ascii-art .tiny {
     font-size: 0.5em;
     font-family: var(--font-mono);
+  }
+
+  .tiny-emoji {
+    font-size: 0.6em;
   }
 
   img.miku-hair-clip {

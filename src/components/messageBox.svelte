@@ -85,9 +85,11 @@
     display: grid;
     align-items: center;
     grid-template-columns: 9fr 1fr;
+    transition: box-shadow 100ms;
 
     &:hover {
       border: solid 1px var(--button-accent-hover);
+      box-shadow: 0px 0px 8px var(--accent-3);
     }
 
     &:focus {
