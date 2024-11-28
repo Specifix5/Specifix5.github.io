@@ -18,7 +18,7 @@
         daynight = "evening";
       }
 
-      getJSON("https://api.specifix.dev/api/ip", function(data) {
+      getJSON("https://api.specifix.dev/ip", function(data) {
         document.querySelector("#ip")!.textContent = `${data.ip}${emoji}`;
         parseEmoji(document.querySelector("#ip")! as HTMLElement);
       });

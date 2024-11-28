@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+#api_backend
+api_backend/target/
+api_backend/.env
+api_backend/static/GeoLite2-City.mmdb

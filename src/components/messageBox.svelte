@@ -27,7 +27,7 @@
         var _xhr = "";
         inputValue = "";
         input.placeholder = "> Sending message..."
-        postJSON("https://api.specifix.dev/api/mailbox", { content: _value }, 
+        postJSON("https://api.specifix.dev/mailbox", { content: _value }, 
           function (res) {
             input!.placeholder = "> Successfully sent!"
             debounce = false;
