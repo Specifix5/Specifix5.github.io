@@ -1,0 +1,95 @@
+---
+import Icon from "./Icon.astro";
+
+const { text, icon, sy } = Astro.props;
+---
+
+<div class={`WebButton ${sy}`} unselectable="on">
+  <Icon icon={icon} />
+  <Fragment set:html={text} />
+</div>
+
+<style lang="scss" is:global>
+  @use '../styles/vars.scss' as *;
+  .WebButton {
+    user-select: none;
+    width: 88px;
+    height: 31px;
+
+    border: 1px solid rgba($accent-color, 0.1);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($accent-color, 0.1) 100%);
+    box-sizing: border-box;
+    margin: 0.25em;
+
+    font-size: 0.7em;
+    display: flex;
+    font-style: italic;
+
+    align-items: center;
+    justify-content: center;
+    gap: 0.25em;
+
+    border-radius: $border-radius;
+
+  }
+
+  .typescript {
+    $color: #8aadf4;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .rust {
+    $color: #f5a97f;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .luau {
+    $color: $blue;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .kotlin {
+    $color: #c6a0f6;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .csharp {
+    $color: #8aadf4;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .astro {
+    $color: #cad3f5;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .sass {
+    $color: #f5bde6;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .docker {
+    $color: #8aadf4;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .nodejs {
+    $color: #a6da95;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+
+  .godot {
+    $color: #91d7e3;
+    border: 1px solid rgba($color, 0.5);
+    background-image: linear-gradient(180deg, transparent 0%, rgba($color, 0.1) 100%);
+  }
+</style>

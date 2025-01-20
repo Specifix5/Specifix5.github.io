@@ -1,0 +1,52 @@
+---
+import BaseTab from "../BaseTab.astro";
+import WebButtonFriends from "../WebButtonFriends.astro";
+import CopyWebButtonSnippet from "../CopyWebButtonSnippet.svelte";
+
+const web_snippet = `<a href="https://specifix.dev"><img src="https://specifix.dev/images/88x31.png" width="88" height="31" loading="lazy" alt="specifix.dev :3" /></a>`
+---
+
+<BaseTab active={false} id="credits">
+  <h1>credits</h1>
+  special thanks to those projects and ppl!!!
+  <ul>
+    <li><a href="https://iconify.design" target="_blank">iconify</a> for icons</li>
+    <li><a href="https://github.com/twitter/twemoji" target="_blank">twemoji</a> for twitter emojis</li>
+    <li><a href="https://github.com/Specifix5/Moe-Counter" target="_blank">moe-counter</a> by journey-ad</li>
+    <li><a href="https://github.com/tsparticles" target="_blank">tsparticles</a> for particles</li>
+    <li><a href="https://ka3l.tumblr.com/post/661014493592240128/happy-birthday-miku" target="_blank">kael</a> for miku emojis</li>
+    <li><a href="https://www.deviantart.com/dav-19/art/Pixel-Miku-345300669" target="_blank">dav-19</a> for the miku gif</li>
+    <li><span class="blue">You</span> for visiting</li>
+  </ul>
+  <h1>my 88x31 collection (friends)</h1>
+  click <CopyWebButtonSnippet client:load>here</CopyWebButtonSnippet> to copy my 88x31 html snippet {":>"}
+  <div class="webbutton-container">
+    <WebButtonFriends link="https://specifix.dev" img="/images/88x31.png" alt="specifix.dev 88x31" />
+    <WebButtonFriends link="https://pre1ude.dev" img="https://pre1ude.dev/blankie.png" alt="pre1ude.dev 88x31" />
+    <WebButtonFriends link="https://uwu.gal" img="	https://uwu.gal/button.png" alt="uwu.gal 88x31" />
+    <WebButtonFriends link="https://vorlie.pages.dev/" img="https://vorlie.pages.dev/images/vorlie.png" alt="vorlie 88x31" />
+    <WebButtonFriends link="https://megu.dev/" img="/images/friends/megudev.png" alt="rie 88x31" />
+    <WebButtonFriends link="https://byeoon.github.io/" img="https://byeoon.github.io/img/button.png" alt="byeoon 88x31" />
+    <WebButtonFriends link="/" img="/images/miku_approved.gif" alt="THIS IS MIKU APPROVED WEBSITE!!!!"/>
+  </div>
+  <h1>visitor count</h1>
+  <img src="https://count.specifix.dev/get/@visitors?theme=moebooru" alt="">
+  <br>
+  <a href="https://github.com/Specifix5/Specifix5.github.io" target="_blank" class="hidden">view source on github</a>
+</BaseTab>
+
+<style lang="scss">
+  @use '../../styles/tabs.scss' as *;
+  @use '../../styles/vars.scss' as *;
+  a {
+    font-style: italic;
+    text-decoration: underline;
+    color: $accent-color;
+    opacity: 100%;
+  }
+
+  a.hidden {
+    color: $text-color;
+    opacity: 50%;
+  }
+</style>

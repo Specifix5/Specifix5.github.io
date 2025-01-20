@@ -1,0 +1,16 @@
+---
+import BaseHead from '../components/BaseHead.astro'
+const {title, description} = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height, maximum-scale=1.0, minimum-scale=1.0, initial-scale=1.0">
+    
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

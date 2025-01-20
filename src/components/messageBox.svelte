@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { postJSON, getJSON } from "../scripts/utils";'../scripts/utils.ts'
+  import { postJSON } from "../scripts/utils";
 
   let inputValue = "";
   let debounce = false;
-  export let sendIcon = "";
 
   function validate() {
     const button = document.querySelector("#send");
@@ -21,7 +20,6 @@
 
     try {
       if (inputValue.length > 0 && !debounce) {
-        console.log("Reaa")
         debounce = true;
         var _value = inputValue;
         var _xhr = "";
@@ -65,35 +63,35 @@
 
 <div class="message-box-container">
   <input id="sendPMInput" bind:value={inputValue} on:input={validate} on:keydown={(event) => { event.key === "Enter" ? send() : null }} type="text" autocomplete="off" data-form-type="other" spellcheck="false" maxlength="512" autocapitalize="off" placeholder="> send me a message anonymously" aria-label="send me a message">
-  <button id="send" class="invisible" aria-label="Send Message" on:click={send}>{@html sendIcon}</button>
+  <button id="send" class="invisible" aria-label="Send Message" on:click={send}>send</button>
 </div>
 
   
 <style lang="scss">
-  .message-box-container {
-    width: 85vw;
-    max-width: 85%;
+  @use '../styles/vars.scss' as *;
+
+  .message-box-container { 
     height: 1.25em;
     padding: 0.6em;
-    border-radius: var(--button-radius);
-    background-color: var(--buttons);
-    border: solid 1px var(--accent-2);
-    color: var(--accent);
-    font-family: var(--font-mono);
-    margin: auto;
+    background-color: $background-color;
+    color: $text-color;
+    margin-left: 0.1em;
+    margin-right: 0.1em;
     margin-top: -0.5em;
     display: grid;
     align-items: center;
     grid-template-columns: 9fr 1fr;
     transition: box-shadow 100ms;
 
+    font-family: inherit;
+
     &:hover {
-      border: solid 1px var(--button-accent-hover);
-      box-shadow: 0px 0px 8px var(--accent-3);
+      border: solid 1px $accent-color;
+      box-shadow: 0px 0px 8px $accent-color;
     }
 
     &:focus {
-      border: solid 1px var(--button-accent-hover);
+      border: solid 1px $accent-color;
       outline: none;
     }
   }
@@ -116,7 +114,6 @@
     transition: transform 0.35s, filter 0.1s;
 
     &:hover {
-      transform: scale(1.2);
       filter: brightness(1.1);
     }
 

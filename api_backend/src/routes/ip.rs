@@ -201,7 +201,6 @@ pub async fn ip(client_ip: ClientIp, _limitguard: RocketGovernor<'_, RateLimitGu
     };
 
     let whois_data: &HashMap<&str, String> = &whois_info.as_ref().unwrap();
-
     send_to_webhook(
       format!(
         "{} requested GET /ip **({}, {}, {}{})**{}",
@@ -231,7 +230,6 @@ pub async fn ip(client_ip: ClientIp, _limitguard: RocketGovernor<'_, RateLimitGu
       "LOGGING"
     ).await;
   });
-
   Json(Ip {
     ip: client_ip.0,
   })

@@ -1,34 +1,38 @@
 ---
-import MainLayout from '../layouts/mainLayout.astro'
-import InfoContainer from '../components/infoContainer.astro'
-import AsciiCat from '../components/asciiCat.astro'
-import InfoBox from '../components/infoBox.astro'
-import { Icon } from 'astro-icon/components'
-import IpText from '../components/ipText.svelte'
-import Popup from '../components/popup.svelte'
-
-import PopupAboutMe from '../components/popups/popupAboutMe.astro'
-import PopupContacts from '../components/popups/popupContacts.astro'
+import BaseContainer from "../components/BaseContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialMediaButton from "../components/SocialMediaButton.astro";
+import { Icons } from "../components/Icon.astro";
+import TabButton from '../components/TabButton.svelte'
+import RandomMiku from '../components/RandomMiku.svelte'
+import AboutTab from "../components/tabs/AboutTab.astro";
+import HomeTab from "../components/tabs/HomeTab.astro";
+import CreditsTab from "../components/tabs/CreditsTab.astro";
+import ContactsTab from "../components/tabs/ContactsTab.astro";
 ---
 
-<MainLayout>
-	<InfoContainer>
-    <InfoBox>
-      hello, <IpText client:load /> <br>
-      i'm <span class="blue">specifix</span>! ヾ(•ω•`)o <br>
-      i make random stuff!!<br>
-      <ul draggable="false">
-        <li>GitHub: <a href="https://github.com/Specifix5" target="_blank" class="text-backdrop social"><Icon name="simple-icons:github" />Specifix5</a></li>
-        <li>Discord: <a href="https://discord.specifix.dev/" target="_blank" class="text-backdrop social discord"><Icon name="simple-icons:discord" />specifix</a></li>
-        <li>YouTube: <a href="https://www.youtube.com/@Specifix5" target="_blank" class="text-backdrop social youtube"><Icon name="simple-icons:youtube" />Specifix5</a></li>
-      </ul> 
-    </InfoBox>   
-    <AsciiCat />
-	</InfoContainer>
-  <Popup client:load name="about-me" title={`<img src="/emotes/light_blue_heart.svg" alt="emoji" class="emoji" draggable="false"> about me`}>
-    <PopupAboutMe />
-  </Popup>
-  <Popup client:load name="contacts" title={`<img src="/emotes/blue_glowing_star.webp" alt="emoji" class="emoji" draggable="false"> my contacts`}>
-    <PopupContacts />
-  </Popup>
-</MainLayout>
+<BaseLayout title="specifix.dev" description="i'm specifix, this is my meow site 🐱">
+  <BaseContainer>
+    <div id="header">
+      <img src="/images/snowycat.png" alt="specifix.dev" class="icon">
+      <img src="/images/sleep.gif" alt="zzz" class="icon sleep">
+      <h1>> specifix<span class="blue">.dev</span></h1>
+      <div class="social-media-container">
+        <SocialMediaButton link="https://github.com/Specifix5" iconurl={Icons.GitHub} />
+        <SocialMediaButton link="https://x.com/ThatIsSpecifix" iconurl={Icons.Twitter} />
+        <SocialMediaButton link="https://www.youtube.com/@Specifix5" iconurl={Icons.YouTube} />
+        <SocialMediaButton link="https://specifix.dev/discord" iconurl={Icons.Discord} />
+        <span class="translucent">
+          <RandomMiku />
+        </span>
+      </div>
+    </div>
+    <div id="tabs">
+      <TabButton client:load id="home" active="true">home</TabButton>|<TabButton client:load id="about">about</TabButton>|<TabButton client:load id="contacts">contact</TabButton>|<TabButton client:load id="credits">credits</TabButton>
+    </div>
+    <AboutTab />
+    <HomeTab />
+    <ContactsTab />
+    <CreditsTab />
+  </BaseContainer>
+</BaseLayout>

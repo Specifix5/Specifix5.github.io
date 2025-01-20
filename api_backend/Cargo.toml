@@ -14,3 +14,4 @@ webhook = { version ="2.1.2" }
 rocket-governor = { version = "^0.2.0-rc.3" }
 parking_lot ={ version = "^0.12.3" }
 lazy_static = { version = "^1.4.0" }
+rocket_cors = { version = "^0.6.0-rc.3" }

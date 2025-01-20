@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import twemoji from 'twemoji';
+import { parseEmoji } from "../scripts/utils";
 
 type Attributes = Omit<
   HTMLAttributes<"span">,
@@ -24,9 +24,7 @@ forbiddenAttributes.forEach((attr) => {
   }
 });
 
-const parsedEmoji = twemoji.parse(symbol,
-{ base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' }
-);
+const parsedEmoji = parseEmoji(symbol)
 ---
 
 <span aria-hidden={label ? null : true} aria-label={label} {...rest} set:html={parsedEmoji}/>

@@ -1,24 +1,9 @@
 import twemoji from "twemoji";
 
-export async function getJSON(url: string, func: (...json: any) => any ): Promise<[boolean, any]> {
-  let success: boolean = false
-  try {
-      const response = await fetch(url);
-      if (!response.ok) {
-          throw new Error(`Response status: ${response.status}`);
-      }
-      success = true
-
-      const json = await response.json();
-      if (func != null) {
-        return [success, await func(json)]
-      } else {
-          return [success, json];
-      }
-  } catch (error: any) {
-      console.error(error.message);
-      return [success, error];
-  }
+export const DiscordInviteLink = "https://discord.gg/whNdXjKezx";
+export const getJSON = async (url: string) => await fetch(url).then(async (res) => await res.json());
+export const parseEmoji = (text: string | HTMLElement): string | HTMLElement => {
+  return twemoji.parse(text, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' })
 }
 
 export async function postJSON(url: string, json: object, successFunc: (...res: any) => any, errorFunc: (...res: any) => any): Promise<[boolean, any]> {
@@ -47,26 +32,5 @@ export async function postJSON(url: string, json: object, successFunc: (...res: 
   } catch (error) {
       console.error(error);
       return [success, error];
-  }
-}
-
-export function parseEmoji(text: string | HTMLElement): string | HTMLElement {
-  return twemoji.parse(text, { base: 'https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/' })
-}
-
-export function hideAllPopups() {
-  const popups = document.querySelectorAll('[data-popup-visible="true"]')
-  popups.forEach((popup) => {
-    popup.setAttribute("data-popup-visible", "false")
-  })
-}
-
-export function openPopup(popupName: string) {
-  hideAllPopups()
-  const popup = document.querySelector("#popup_"+popupName)
-  if (popup) {
-    popup.setAttribute("data-popup-visible", "true")
-  } else {
-    console.error("Can't find popup " + popupName)
   }
 }

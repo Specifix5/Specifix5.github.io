@@ -1,7 +1,6 @@
 {
   "extends": "astro/tsconfigs/strict",
-  // To maybe avoid https://github.com/sveltejs/language-tools/issues/2171
-  // "Svelte language sever detected a large amount of files" on Svelte build
+  "include": [".astro/types.d.ts", "**/*"],
   "exclude": [
     "./node_modules/**",
     "./.svelte-kit/**",
@@ -13,4 +12,5 @@
     "./coverage/**",
     "**/_/**"
   ]
+
 }

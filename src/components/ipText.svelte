@@ -1,29 +1,24 @@
 <script lang="ts">
-  import { getJSON, parseEmoji } from '../scripts/utils'
-  import { onMount } from 'svelte';
+  import { onMount } from "svelte";
+  import { getJSON, parseEmoji } from "../scripts/utils";
+  onMount(async () => {
+    let ipElement = document.getElementById("ip-text");
+    if (!ipElement) return;
+    let ip = (await getJSON("https://api.specifix.dev/ip"))["ip"];
+    let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
+    let emoji = "☀️";
 
-  onMount(() => {
-    try {
-      let hour = Number(new Date().toLocaleString('en-US', {hour12: false}).split(", ")[1].split(":")[0]);
-      let emoji = "☀️";
-      let daynight = "day";
-
-      if (hour < 18) {
-        if (hour < 6) {
-          emoji = `🌙`;
-          daynight = "evening";
-        }
-      } else {
+    if (hour < 18) {
+      if (hour < 6) {
         emoji = `🌙`;
-        daynight = "evening";
       }
+    } else {
+      emoji = `🌙`;
+    }
 
-      getJSON("https://api.specifix.dev/ip", function(data) {
-        document.querySelector("#ip")!.textContent = `${data.ip}${emoji}`;
-        parseEmoji(document.querySelector("#ip")! as HTMLElement);
-      });
-    } catch (error) { console.log(error); }
+    ipElement.innerText = ip + emoji;
+    parseEmoji(ipElement)
   })
 </script>
 
-<span id="ip" class="blue"></span>
+<span class="blue" id="ip-text"></span>
