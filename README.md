@@ -10,7 +10,7 @@ will also used to show you the stuff im working on.
 
 # installation
 ### Astro
-Run ``npm i`` to download the requirements for Astro
+Run ``pnpm i`` to download the requirements for Astro
 Follow the instructions if it tells you to do anything further.
 
 ### API Backend (Rust)
