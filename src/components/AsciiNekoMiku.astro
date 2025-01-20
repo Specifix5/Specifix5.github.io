@@ -1,0 +1,71 @@
+---
+import Emoji from "./Emoji.astro";
+
+
+---
+
+<div class="ascii-art" draggable="false">     &#x20;<span class="blue">╱|</span>、<img src="/ascii/ahoge.webp" class="emoji ahoge" draggable="false">
+  (&#x3E;   &#x3C;<img src="/ascii/miku_hairclip.png" class="emoji miku-hair-clip" draggable="false">&#x20;&#x20;<span class="blue">&#x20;7</span> <span class="tiny"> ニャ~</span>
+&#x20;&#x20;、  ⁻〵 &#x20;\
+&#x20;じしˍ, )ノ
+<a href="/neko_ascii.txt" target="_blank" class="mini">neko_ascii.txt</a></div>
+
+
+<style lang="scss">
+  @use '../styles/vars.scss' as *;
+
+  .ascii-art {
+    white-space: pre;
+    text-align: left;
+    font-family: 'Rubik';
+    font-size: 1.8em;
+    margin-bottom: -0.1em;
+    margin-left: -1em;
+    
+    align-self: center;
+
+    @media screen and (max-width: 350px) {
+      margin: 0px;
+      align-self: center;
+      margin-top: 0.5em;
+    }
+  }
+
+  a {
+    color: $text-color;
+  }
+
+  .mini {
+    font-family: 'JetBrains Mono';
+    opacity: 50%;
+    font-size: 0.5em;
+    font-style: italic;
+  }
+
+  .ascii-art .tiny {
+    font-size: 0.5em;
+  }
+
+  .tiny-emoji {
+    font-size: 0.6em;
+  }
+
+  img.miku-hair-clip {
+    width: 1.5em;
+    height: 1.3em;
+    position: absolute;
+    transform: translate(-0.4em, -0.2em);
+    rotate: -15deg;
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated;                 /* Universal support since 2021   */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+  }
+
+  img.ahoge {
+    margin-left: -0.7em;
+  }
+</style>

@@ -1,0 +1,27 @@
+---
+import BaseTab from "../BaseTab.astro";
+import HowLongAgoWasMyProgrammingHobby from '../HowLongAgoWasMyProgrammingHobby.svelte';
+---
+
+<BaseTab active={false} id="about">
+  <h1>about me</h1>
+  hi! ヾ(•ω•`)o<br> i'm <span class="blue">specifix</span>!  just another person on the internet.  i code sometimes, mostly for fun, and i play a lot of games too.
+  <br><br>
+  i'm an aspiring self-taught dev, i started programming as a hobby back in <span class="blue">Mar-Apr 2018</span>, so it's been a long <HowLongAgoWasMyProgrammingHobby client:load /> since then!
+  <br><br>
+  I'm always learning a lot more stuff!! whatever i find interesting...
+  <br>
+  <span class="mini">(on my free time that is (｡•̀ᴗ-)✧)</span>
+  <img class="mikupic" src="/images/guitarmiku.gif" alt="">
+  <br>
+  <a class="mini" href="/images/guitarmiku.gif" target="_blank">guitarmiku.gif</a>
+</BaseTab>
+
+<style lang="scss">
+  @use '../../styles/tabs.scss' as *;
+
+  a.mini {
+    font-size: 0.8em;
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import JoinDiscordRedirect from "../components/JoinDiscordRedirect.svelte";
+
+import { DiscordInviteLink } from "../scripts/utils";
+---
+
+<BaseLayout title="Join My Discord" description="Join my discord server gang!!!!">
+  <span>Joining in 10 seconds.. <br>
+    Alternatively, you can add me instead!
+    <br>
+    <br>
+    <span class="blue">
+      user: Specifix
+      <br>
+      invite: {DiscordInviteLink}
+    </span>
+  </span>
+  
+  <JoinDiscordRedirect client:load />
+</BaseLayout>

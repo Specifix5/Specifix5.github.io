@@ -1,0 +1,38 @@
+---
+import BaseContainer from "../components/BaseContainer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SocialMediaButton from "../components/SocialMediaButton.astro";
+import { Icons } from "../components/Icon.astro";
+import TabButton from '../components/TabButton.svelte'
+import RandomMiku from '../components/RandomMiku.svelte'
+import AboutTab from "../components/tabs/AboutTab.astro";
+import HomeTab from "../components/tabs/HomeTab.astro";
+import CreditsTab from "../components/tabs/CreditsTab.astro";
+import ContactsTab from "../components/tabs/ContactsTab.astro";
+---
+
+<BaseLayout title="specifix.dev" description="i'm specifix, this is my meow site 🐱">
+  <BaseContainer>
+    <div id="header">
+      <img src="/images/snowycat.png" alt="specifix.dev" class="icon">
+      <img src="/images/sleep.gif" alt="zzz" class="icon sleep">
+      <h1>> specifix<span class="blue">.dev</span></h1>
+      <div class="social-media-container">
+        <SocialMediaButton link="https://github.com/Specifix5" iconurl={Icons.GitHub} />
+        <SocialMediaButton link="https://x.com/ThatIsSpecifix" iconurl={Icons.Twitter} />
+        <SocialMediaButton link="https://www.youtube.com/@Specifix5" iconurl={Icons.YouTube} />
+        <SocialMediaButton link="https://specifix.dev/discord" iconurl={Icons.Discord} />
+        <span class="translucent">
+          <RandomMiku />
+        </span>
+      </div>
+    </div>
+    <div id="tabs">
+      <TabButton client:load id="home" active="true">home</TabButton>|<TabButton client:load id="about">about</TabButton>|<TabButton client:load id="contacts">contact</TabButton>|<TabButton client:load id="credits">credits</TabButton>
+    </div>
+    <AboutTab />
+    <HomeTab />
+    <ContactsTab />
+    <CreditsTab />
+  </BaseContainer>
+</BaseLayout>

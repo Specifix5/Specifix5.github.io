@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { parseEmoji } from "../scripts/utils";
+
+type Attributes = Omit<
+  HTMLAttributes<"span">,
+  "aria-hidden" | "aria-label" | "role"
+>;
+
+export interface Props extends Attributes {
+  label?: string;
+  symbol: string;
+}
+
+const { label = null, symbol, ...rest } = Astro.props;
+const forbiddenAttributes = ["aria-hidden", "aria-label", "role"];
+
+forbiddenAttributes.forEach((attr) => {
+  if (rest.hasOwnProperty(attr)) {
+    console.warn(
+      `\`Emoji\` handles the \`${attr}\` attribute internally. Ignoring passed value \`${(rest as any)[attr]}\``
+    );
+    delete (rest as any)[attr];
+  }
+});
+
+const parsedEmoji = parseEmoji(symbol)
+---
+
+<span aria-hidden={label ? null : true} aria-label={label} {...rest} set:html={parsedEmoji}/>
