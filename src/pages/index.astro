@@ -11,12 +11,12 @@ import CreditsTab from "../components/tabs/CreditsTab.astro";
 import ContactsTab from "../components/tabs/ContactsTab.astro";
 ---
 
-<BaseLayout title="specifix.dev" description="i'm specifix, this is my meow site 🐱">
+<BaseLayout title="specifix.dev" description="i'm specifix, this is my meow site ( •̀ ω •́ )✧">
   <BaseContainer>
     <div id="header">
       <img src="/images/snowycat.png" alt="specifix.dev" class="icon">
       <img src="/images/sleep.gif" alt="zzz" class="icon sleep">
-      <h1>> specifix<span class="blue">.dev</span></h1>
+      <h1 >> specifix<span class="blue">.dev</span><span class="blink"></span></h1>
       <div class="social-media-container">
         <SocialMediaButton link="https://github.com/Specifix5" iconurl={Icons.GitHub} />
         <SocialMediaButton link="https://x.com/ThatIsSpecifix" iconurl={Icons.Twitter} />
@@ -36,3 +36,18 @@ import ContactsTab from "../components/tabs/ContactsTab.astro";
     <CreditsTab />
   </BaseContainer>
 </BaseLayout>
+
+<style lang="scss">
+  @use '../styles/vars.scss' as *;
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  span.blink::after {
+    content: '_';
+    animation: blinker 1s step-end infinite;
+  }
+</style>

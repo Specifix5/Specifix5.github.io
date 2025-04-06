@@ -9,6 +9,7 @@ const { link, img, alt } = Astro.props;
 </div>
 
 <style lang="scss">
+  @use '../styles/vars.scss' as *;
   .WebButton {
     user-select: none;
     width: 88px;
@@ -21,5 +22,10 @@ const { link, img, alt } = Astro.props;
     align-items: center;
     justify-content: center;
 
+    box-sizing: border-box;
+
+    a > img:hover {
+      box-shadow: 0px 0px 6px $blue;
+    }
   }
 </style>
