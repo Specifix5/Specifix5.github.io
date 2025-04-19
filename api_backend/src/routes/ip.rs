@@ -75,23 +75,42 @@ pub async fn get_geoip_info(
   let ipaddr = IpAddr::from_str(ip).unwrap();
   let mut response: HashMap<&str, String> = HashMap::new();
   if ip != "127.0.0.1" {
-    let reader = GEOIP.read().unwrap();
-    let geoip = reader.lookup(ipaddr).unwrap();
+    let reader = GEOIP.read();
+    match reader {
+      Ok(reader) => {
+        if let Ok(geoip) = reader.lookup(ipaddr) {
+          let city = geoip.city;
+          let subdivisions = geoip.subdivisions;
+          let country = geoip.country;
 
-    let city = geoip.city.unwrap().names.unwrap();
-    let subdivisions = geoip.subdivisions.unwrap();
-    let country = geoip.country.unwrap();
+          if let Some(city) = city {
+            let names = city.names;
+            match names {
+              Some(names) => {
+                if names.get("en").is_some_and(|v| !v.is_empty()) {
+                  response.insert("City", names.get("en").unwrap().to_string());
+                }
+              }
+              None => {}
+            }
+          }
 
-    if city.get("en").is_some_and(|v| !v.is_empty()) {
-      response.insert("City", city.get("en").unwrap().to_string());
-    }
+          if let Some(subdivisions) = subdivisions {
+            if subdivisions.get(0).is_some_and(|v| !v.iso_code.unwrap_or_default().is_empty()) {
+              response.insert("State", subdivisions.get(0).unwrap().iso_code.unwrap().to_string());
+            }
+          }
 
-    if subdivisions.get(0).is_some_and(|v| !v.iso_code.unwrap().is_empty()) {
-      response.insert("State", subdivisions.get(0).unwrap().iso_code.unwrap().to_string());
-    }
-
-    if country.iso_code.is_some_and(|v| !v.is_empty()) {
-      response.insert("Country", country.iso_code.unwrap().to_string());
+          if let Some(country) = country {
+            if country.iso_code.is_some_and(|v| !v.is_empty()) {
+              response.insert("Country", country.iso_code.unwrap().to_string());
+            }
+          }
+        }
+      }
+      Err(e) => {
+        eprintln!("Failed to read GeoIP database: {}", e);
+      }
     }
   }
 
@@ -121,29 +140,39 @@ pub async fn get_whois_info(
       .get("WHOIS")
       .is_some_and(|v| v == "true")
   {
-    let whois = WHOIS.read().unwrap();
-    let result: String = whois.lookup(WhoIsLookupOptions::from_string(ip).unwrap()).unwrap();
+    let whois = WHOIS.read();
 
-    for line in result.lines() {
-      if fields.get("ISP").is_none() && (line.contains("OrgName:") || line.contains("descr:")) {
-        fields.insert("ISP", line.split(':').nth(1).unwrap_or("").trim().to_string());
-      }
-      if
-        fields.get("Abuse Email").is_none() &&
-        (line.contains("OrgAbuseEmail:") || line.contains("abuse-mailbox:"))
-      {
-        fields.insert("Abuse Email", line.split(':').nth(1).unwrap_or("").trim().to_string());
-      }
-      if
-        fields.get("Net Name").is_none() &&
-        (line.contains("NetName:") || line.contains("netname:"))
-      {
-        fields.insert("Net Name", line.split(':').nth(1).unwrap_or("").trim().to_string());
-      }
+    match whois {
+      Ok(whois) => {
+        let result: String = whois
+          .lookup(WhoIsLookupOptions::from_string(ip).unwrap())
+          .unwrap_or_default();
 
-      // Break early if all fields are found
-      if fields.len() == 3 {
-        break;
+        for line in result.lines() {
+          if fields.get("ISP").is_none() && (line.contains("OrgName:") || line.contains("descr:")) {
+            fields.insert("ISP", line.split(':').nth(1).unwrap_or("").trim().to_string());
+          }
+          if
+            fields.get("Abuse Email").is_none() &&
+            (line.contains("OrgAbuseEmail:") || line.contains("abuse-mailbox:"))
+          {
+            fields.insert("Abuse Email", line.split(':').nth(1).unwrap_or("").trim().to_string());
+          }
+          if
+            fields.get("Net Name").is_none() &&
+            (line.contains("NetName:") || line.contains("netname:"))
+          {
+            fields.insert("Net Name", line.split(':').nth(1).unwrap_or("").trim().to_string());
+          }
+
+          // Break early if all fields are found
+          if fields.len() == 3 {
+            break;
+          }
+        }
+      }
+      Err(e) => {
+        eprintln!("Failed to read WHOIS database: {}", e);
       }
     }
   }
