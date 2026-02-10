@@ -1,17 +1,18 @@
 [package]
 name = "specifix-api"
-version = "0.2.0"
+version = "0.3.0"
 edition = "2021"
 
 [dependencies]
 rocket = { version = "^0.5.1", features = ["json"] }
-chrono = { version = "^0.4" }
+chrono = { version = "^0.4.42" }
 whois-rust = { version = "^1.6.0" }
-once_cell = { version = "^1.17.1" }
+once_cell = { version = "^1.21.3" }
 geoip2 = { version = "^0.1.7" }
 env-file-reader = { version = "0.3.0" }
 webhook = { version ="2.1.2" }
 rocket-governor = { version = "^0.2.0-rc.3" }
-parking_lot ={ version = "^0.12.3" }
+parking_lot ={ version = "^0.12.5" }
 lazy_static = { version = "^1.4.0" }
 rocket_cors = { version = "^0.6.0-rc.3" }
+reqwest = { version = "^0.12.28", features = ["json"] }
